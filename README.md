@@ -3,7 +3,6 @@
 ![Logo - e-Consulta](/public/assets/logoalt.svg "Logo e-Consulta")
 
 ## Sobre
-<hr/>
 
 O <b>e-Consulta</b> consiste em uma aplicação web desenvolvida para a disciplina de Projeto Interdisciplinar (PI).
 
@@ -14,7 +13,6 @@ A aplicação tem o objetivo de auxiliar consultórios médicos no gerenciamento
 - Controle de pacientes e seus prontuários
 
 ## Tecnologias
-<hr/>
 
 - <b>Front-End</b>
     - CSS + SCSS
