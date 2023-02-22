@@ -1,0 +1,83 @@
+@import "../global";
+
+body {
+    background: radial-gradient(153% 221.18% at 39.64% -31.3%, $black 0%, $blue800 36.46%, $blue400 78.12%, $white 100%);
+}
+
+.login-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    
+    .login {
+        background: linear-gradient(139deg, $white50 -9.05%, $white10 99.66%);
+        filter: drop-shadow(0 4px 4px $black25);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 4rem;
+        img {
+            width: 12rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+            color: $white;
+            gap: .5rem;
+            label{
+                font-weight: 500;
+            }
+            input {
+                background: transparent;
+                border: .125rem solid $white;
+                border-radius: 5px;
+                padding: .375rem 1rem;
+                font-weight: 400;
+                margin-bottom: .75rem;
+                color: $white;
+                
+                &::placeholder {
+                    color: $grey100;
+                }
+                &:focus-visible{
+                    border: none;
+                    outline: $blue200 solid ;
+                    outline-width: medium;
+                    filter: drop-shadow(2px 4px 6px rgba(0,0,0,.25));
+                }
+            }
+
+            input[type="submit"]{
+                background-color: $blue800;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                filter: drop-shadow(0px 4px 4px $black25);
+                &:hover{
+                    transform: translateY(.25rem);
+                    filter: none;
+                }
+            }
+        }
+        small{
+            color: #bbb;
+            a{
+                color:$white;
+            }
+        }
+    }
+    .waves {
+        position:absolute;
+        width: 100%;
+        height:15vh;
+        margin-bottom:-7px; /*Fix for safari gap*/
+        min-height:100px;
+        max-height:150px;
+        bottom: 0;
+      }
+}
+
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../../styles/main/main.css">
+    <title>
+        <%- title %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <nav style="padding: 2rem 3rem;">
+            <img src="../../../assets/logoalt.svg" alt="">
+                
+            <ul>
+                <li>
+                    <a href="/" class="logout">
+                        <span class="material-icons-round">
+                            logout
+                        </span>
+                        <p>Sair</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        <main>
+            <%- include("../parts/sidebar") %>
+                <section class="content">
+                    <h1>Consultas do dia</h1>
+                    <small class="content-subtitle">Preencha os campos a seguir para ter acesso ao
+                        prontuário</small>
+                    <div class="results-items-amount">
+                        <div class="results-item-amount-description">
+                            <span>A busca retornou <%= appointmentCount %> </span>
+                        </div>
+                    </div>
+                    <% if (isNoAppointment){ %>
+                        <%- include('../parts/no-appointments') %>
+                    <% } %>
+                    <div class="patient-group">
+                        <% appointment.forEach(appointment=> { %>
+                            <div class="patient" data-id="<%= appointment.id %>">
+                                <small>
+                                    <%= appointment.medicalInsurance %>
+                                </small>
+                                <h3 class='patient-name'>
+                                    <%= appointment.name %>
+                                </h3>
+                                <small>
+                                    <b>Horário:</b> <%= appointment.time %>
+                                </small>
+                                <div class="actions-group">
+                                    <div class="actions">
+                                        <span class='material-icons-round'>edit_note</span>
+                                        <span class='material-icons-round'>delete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                </section>
+        </main>
+        <div id="modal-wrapper">
+            <div class="modal">
+                <span class="material-icons-round close-icon" onclick="">close</span>
+                <span class="material-icons-round warning-icon">warning</span>
+                <h4 id="scheduled-record">Você tem certeza que deseja deletar?</h4>
+                <div id="modal-content">
+                    <input type="button" value="Não">
+                    <form action="" method="post">
+                        <input type="submit" value="Sim">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+            integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            const deletePront = document.querySelectorAll(".delete");
+            const editPront = document.querySelectorAll(".edit");
+            const modal = document.getElementById("modal-wrapper");
+
+            const activeModal = () => modal.classList.add("active-modal");
+
+            deletePront.onclick = () => activeModal()
+            editPront.onclick = () => activeModal()
+
+            const close = document.querySelector(".close-icon");
+            close.onclick = () => {
+                modal.classList.remove("active-modal")
+            }
+        </script>
+        <script src="../../../scripts/main.js"></script>
+        <script src="../../../scripts/med.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .active-button {
+            width: auto !important;
+        }
+
+        .tab {
+            overflow-x: auto;
+            color: rgb(0, 149, 255);
+            padding: .125rem .0625rem;
+            margin: 1rem 0;
+            gap: 1rem;
+            display: flex;
+            width: 100%;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 1rem;
+            transition: 0.3s;
+            font-size: 1rem;
+            color: rgb(0, 149, 255);
+        }
+
+        .tab button:hover {
+            outline: 1px solid rgb(0, 149, 255);
+        }
+
+        .tab button.active-button {
+            background-color: rgb(0, 149, 255);
+            color: #fff;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 0;
+            border-top: none;
+        }
+    </style>
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title>
+        <%- title %>
+    </title>
+</head>
+
+<body>
+    <%- include(`../parts/header`) %>
+        <main>
+            <%- include(`../parts/sidebar`) %>
+                <section class="content">
+                    <h1>Consultar Prontuário</h1>
+                    <small class="content-subtitle">Busque o prontuário desejado na lista a seguir</small>
+                    <div class="tab-container">
+                        <div class="tab">
+                            <button type="button" class="tablinks" id="defaultOpen"
+                                onclick="openCity(event, 'Geral')">Geral</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Amil')">Amil</button>
+                            <button type="button" class="tablinks"
+                                onclick="openCity(event, 'Bradesco')">Bradesco</button>
+                            <button type="button" class="tablinks"
+                                onclick="openCity(event, 'NotreDame')">NotreDame</button>
+                            <button type="button" class="tablinks"
+                                onclick="openCity(event, 'Sulamerica')">Sulamerica</button>
+                            <button type="button" class="tablinks"
+                                onclick="openCity(event, 'Transmontano')">Transmontano</button>
+                        </div>
+
+                        <div id="Geral" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= recordsCount %> </span>
+                                </div>
+                                <!--div class="results-item-amount-content">
+                                        <select name="options-filter" id="options-filter" class="options-filter">
+                                            <option value="">Escolha uma opção</option>
+                                            <option value="Amil">Amil</option>
+                                            <option value="Bradesco">Bradesco</option>
+                                            <option value="NotreDame">NotreDame Intermedica</option>
+                                            <option value="Sulamerica">Sulamerica</option>
+                                            <option value="Transmontano">Transmontano</option>
+                                        </select>
+                                    </div-->
+                            </div>
+                            <div class="patient-group">
+                                <% patient.forEach(patient=> { %>
+                                    <div class="patient" data-id="<%= patient.id %>">
+                                        <small>
+                                            <%= patient.medicalInsurance %>
+                                        </small>
+                                        <h3 class='patient-name'>
+                                            <%= patient.name %>
+                                        </h3>
+                                        <div class="actions-group">
+                                            <div class="actions">
+                                                <span class='material-icons-round'>edit_note</span>
+                                                <span class='material-icons-round'>delete</span>
+                                            </div>
+                                            <a href="/patient/<%= patient.id %>">Ver Prontuário</a>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </div>
+                        <div id="Amil" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= patientAmilCount %>
+                                    </span>
+                                </div>
+                                <!--div class="results-item-amount-content">
+                                        <select name="options-filter" id="options-filter" class="options-filter">
+                                            <option value="">Escolha uma opção</option>
+                                            <option value="Amil">Amil</option>
+                                            <option value="Bradesco">Bradesco</option>
+                                            <option value="NotreDame">NotreDame Intermedica</option>
+                                            <option value="Sulamerica">Sulamerica</option>
+                                            <option value="Transmontano">Transmontano</option>
+                                        </select>
+                                    </div-->
+                            </div>
+                            <div class="patient-group">
+                                <% patientAmil.forEach(patientAmil=> { %>
+                                    <div class="patient" data-id="<%= patient.id %>">
+                                        <small>
+                                            <%= patientAmil.medicalInsurance%>
+                                        </small>
+                                        <h3 class='patient-name'>
+                                            <%= patientAmil.name %>
+                                        </h3>
+                                        <div class="actions-group">
+                                            <div class="actions">
+                                                <span class='material-icons-round'>edit_note</span>
+                                                <span class='material-icons-round'>delete</span>
+                                            </div>
+                                            <a href="/patient/<%= patientAmil.id %>">Ver Prontuário</a>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </div>
+
+                        <div id="Bradesco" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= patientBradescoCount %>
+                                    </span>
+                                </div>
+                            </div>
+                            <% if (isNoRecords){ %>
+                                <%- include('parts/no-records') %>
+                                    <% } %>
+                                        <div class="patient-group">
+                                            <% patientBradesco.forEach((patientBradesco)=> { %>
+                                                <div class="patient" data-id="<%= patientBradesco.id %>">
+                                                    <small>
+                                                        <%= patientBradesco.medicalInsurance%>
+                                                    </small>
+                                                    <h3 class='patient-name'>
+                                                        <%= patientBradesco.name %>
+                                                    </h3>
+                                                    <div class="actions-group">
+                                                        <div class="actions">
+                                                            <span class='material-icons-round'>edit_note</span>
+                                                            <span class='material-icons-round'>delete</span>
+                                                        </div>
+                                                        <a href="/patient/<%= patientBradesco.id %>">Ver Prontuário</a>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                        </div>
+
+                        <div id="NotreDame" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= patientGNDICount %>
+                                    </span>
+                                </div>
+                            </div>
+                            <% if (isNoRecords){ %>
+                                <%- include('parts/no-records') %>
+                                    <% } %>
+                                        <div class="patient-group">
+                                            <% patientGNDI.forEach(patientGNDI=> { %>
+                                                <div class="patient" data-id="<%= patient.id %>">
+                                                    <small>
+                                                        <%= patientGNDI.medicalInsurance%>
+                                                    </small>
+                                                    <h3 class='patient-name'>
+                                                        <%= patientGNDI.name %>
+                                                    </h3>
+                                                    <div class="actions-group">
+                                                        <div class="actions">
+                                                            <span class='material-icons-round'>edit_note</span>
+                                                            <span class='material-icons-round'>delete</span>
+                                                        </div>
+                                                        <a href="/patient/<%= patientGNDI.id %>">Ver Prontuário</a>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                        </div>
+                        <div id="Sulamerica" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= patientSulaCount %>
+                                    </span>
+                                </div>
+                            </div>
+                            <% if (isNoRecords){ %>
+                                <%- include('parts/no-records') %>
+                                    <% } %>
+                                        <div class="patient-group">
+                                            <% patientSula.forEach(patientSula=> { %>
+                                                <div class="patient" data-id="<%= patient.id %>">
+                                                    <small>
+                                                        <%= patientSula.medicalInsurance%>
+                                                    </small>
+                                                    <h3 class='patient-name'>
+                                                        <%= patientSula.name %>
+                                                    </h3>
+                                                    <div class="actions-group">
+                                                        <div class="actions">
+                                                            <span class='material-icons-round'>edit_note</span>
+                                                            <span class='material-icons-round'>delete</span>
+                                                        </div>
+                                                        <a href="/patient/<%= patientSula.id %>">Ver Prontuário</a>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                        </div>
+                        <div id="Transmontano" class="tabcontent">
+                            <div class="results-items-amount">
+                                <div class="results-item-amount-description">
+                                    <span>A busca retornou <%= patientTrasCount %>
+                                    </span>
+                                </div>
+                            </div>
+                            <% if (isNoRecords){ %>
+                                <%- include('../parts/no-records') %>
+                                    <% } %>
+                                        <div class="patient-group">
+                                            <% patientTras.forEach(patientTras=> { %>
+                                                <div class="patient" data-id="<%= patient.id %>">
+                                                    <small>
+                                                        <%= patientTras.medicalInsurance%>
+                                                    </small>
+                                                    <h3 class='patient-name'>
+                                                        <%= patientTras.name %>
+                                                    </h3>
+                                                    <div class="actions-group">
+                                                        <div class="actions">
+                                                            <span class='material-icons-round'>edit_note</span>
+                                                            <span class='material-icons-round'>delete</span>
+                                                        </div>
+                                                        <a href="/patient/<%= patientTras.id %>">Ver Prontuário</a>
+                                                    </div>
+                                                </div>
+                                                <% }); %>
+                                        </div>
+                        </div>
+                    </div>
+                </section>
+        </main>
+        <div id="modal-wrapper">
+            <div class="modal">
+                <span class="material-icons-round close-icon" onclick="">close</span>
+                <span class="material-icons-round warning-icon">warning</span>
+                <h4 id="scheduled-record">Você tem certeza que deseja deletar?</h4>
+                <div id="modal-content">
+                    <input type="button" value="Não">
+                    <form action="" method="post">
+                        <input type="submit" value="Sim">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+            integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            const deletePront = document.querySelectorAll(".delete");
+            const editPront = document.querySelectorAll(".edit");
+            const modal = document.getElementById("modal-wrapper");
+
+            const activeModal = () => modal.classList.add("active-modal");
+
+            deletePront.onclick = () => activeModal()
+            editPront.onclick = () => activeModal()
+
+            const close = document.querySelector(".close-icon");
+            close.onclick = () => {
+                modal.classList.remove("active-modal")
+            }
+
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active-button", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active-button";
+            }
+            document.getElementById("defaultOpen").click();
+        </script>
+        <script src="../../scripts/main.js"></script>
+        <script src="../../scripts/med.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include(`parts/header`) %>
+        <main>
+            <%- include(`parts/sidebar`) %>
+
+                <section class="home-title content">
+                    <img src="../assets/undraw_doctors_hwty.svg" alt="Doctors">
+                    <h1 id="greetings"></h1>
+                    <small>Preencha os campos a seguir para ter acesso ao prontuário</small>
+                </section>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="../scripts/hour.js"></script>
+        <script src="../scripts/med.js"></script>
+</body>
+
+</html>

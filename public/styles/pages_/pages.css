@@ -1,0 +1,1026 @@
+header {
+  width: 100%;
+  /*background-color: $blue800;*/
+  padding: 1.5rem 2.375rem;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  background: rgb(255, 0, 0);
+  border-radius: 1rem;
+  padding: 0.35rem 1rem;
+  justify-content: center;
+  display: flex;
+  filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+}
+header nav ul li a {
+  align-items: center;
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-decoration: none;
+}
+@media screen and (max-width: 350px) {
+  header nav ul li a p {
+    display: none;
+  }
+}
+header nav span.menu-icon {
+  color: rgb(0, 149, 255);
+  cursor: pointer;
+  font-size: 2.5rem !important;
+  z-index: 1;
+}
+@media (prefers-color-scheme: light) {
+  header nav span.menu-icon {
+    color: rgb(0, 61, 214);
+  }
+}
+
+.sidebar {
+  width: 0;
+  height: 100%;
+  width: 100% !important;
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
+  height: max-content !important;
+}
+@media screen and (max-width: 612px) {
+  .sidebar {
+    width: 0;
+  }
+}
+.sidebar nav {
+  padding: 0.125rem 1rem;
+  position: fixed;
+  left: 1rem;
+  display: flex;
+  width: calc(100% - 2rem);
+  bottom: 1rem;
+  justify-content: center;
+  z-index: 1;
+}
+.sidebar nav ul {
+  border-radius: 1rem;
+  background-color: rgb(9, 9, 80);
+  display: flex;
+  list-style: none;
+  height: inherit;
+}
+.sidebar nav ul li,
+.sidebar nav ul .accordion,
+.sidebar nav ul details {
+  padding: 0.375rem 0.75rem;
+  color: rgb(0, 149, 255);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+  color: rgb(255, 255, 255);
+  transition: margin 0.125s ease-out;
+  border-radius: 1rem;
+  filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.15));
+}
+.sidebar nav ul li:hover a,
+.sidebar nav ul li:hover summary,
+.sidebar nav ul .accordion:hover a,
+.sidebar nav ul .accordion:hover summary,
+.sidebar nav ul details:hover a,
+.sidebar nav ul details:hover summary {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li a,
+.sidebar nav ul li summary,
+.sidebar nav ul .accordion a,
+.sidebar nav ul .accordion summary,
+.sidebar nav ul details a,
+.sidebar nav ul details summary {
+  display: flex;
+  gap: 0 1rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  color: rgb(0, 61, 214);
+}
+.sidebar nav ul li a .sidebar-paragraph,
+.sidebar nav ul li summary .sidebar-paragraph,
+.sidebar nav ul .accordion a .sidebar-paragraph,
+.sidebar nav ul .accordion summary .sidebar-paragraph,
+.sidebar nav ul details a .sidebar-paragraph,
+.sidebar nav ul details summary .sidebar-paragraph {
+  display: flex;
+  align-items: center;
+}
+.sidebar nav ul li a:hover,
+.sidebar nav ul li summary:hover,
+.sidebar nav ul .accordion a:hover,
+.sidebar nav ul .accordion summary:hover,
+.sidebar nav ul details a:hover,
+.sidebar nav ul details summary:hover {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li .panel,
+.sidebar nav ul li .docs-panel,
+.sidebar nav ul li .patient-panel,
+.sidebar nav ul li .schedule-panel,
+.sidebar nav ul .accordion .panel,
+.sidebar nav ul .accordion .docs-panel,
+.sidebar nav ul .accordion .patient-panel,
+.sidebar nav ul .accordion .schedule-panel,
+.sidebar nav ul details .panel,
+.sidebar nav ul details .docs-panel,
+.sidebar nav ul details .patient-panel,
+.sidebar nav ul details .schedule-panel {
+  display: none;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+.sidebar nav ul li .panel ul,
+.sidebar nav ul li .docs-panel ul,
+.sidebar nav ul li .patient-panel ul,
+.sidebar nav ul li .schedule-panel ul,
+.sidebar nav ul .accordion .panel ul,
+.sidebar nav ul .accordion .docs-panel ul,
+.sidebar nav ul .accordion .patient-panel ul,
+.sidebar nav ul .accordion .schedule-panel ul,
+.sidebar nav ul details .panel ul,
+.sidebar nav ul details .docs-panel ul,
+.sidebar nav ul details .patient-panel ul,
+.sidebar nav ul details .schedule-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+.sidebar nav ul li .panel ul li,
+.sidebar nav ul li .docs-panel ul li,
+.sidebar nav ul li .patient-panel ul li,
+.sidebar nav ul li .schedule-panel ul li,
+.sidebar nav ul .accordion .panel ul li,
+.sidebar nav ul .accordion .docs-panel ul li,
+.sidebar nav ul .accordion .patient-panel ul li,
+.sidebar nav ul .accordion .schedule-panel ul li,
+.sidebar nav ul details .panel ul li,
+.sidebar nav ul details .docs-panel ul li,
+.sidebar nav ul details .patient-panel ul li,
+.sidebar nav ul details .schedule-panel ul li {
+  display: flex;
+  gap: 1rem;
+}
+.sidebar nav ul li .panel ul li:hover,
+.sidebar nav ul li .docs-panel ul li:hover,
+.sidebar nav ul li .patient-panel ul li:hover,
+.sidebar nav ul li .schedule-panel ul li:hover,
+.sidebar nav ul .accordion .panel ul li:hover,
+.sidebar nav ul .accordion .docs-panel ul li:hover,
+.sidebar nav ul .accordion .patient-panel ul li:hover,
+.sidebar nav ul .accordion .schedule-panel ul li:hover,
+.sidebar nav ul details .panel ul li:hover,
+.sidebar nav ul details .docs-panel ul li:hover,
+.sidebar nav ul details .patient-panel ul li:hover,
+.sidebar nav ul details .schedule-panel ul li:hover {
+  background-color: rgb(0, 149, 255);
+}
+.sidebar nav ul li .panel ul li a p,
+.sidebar nav ul li .docs-panel ul li a p,
+.sidebar nav ul li .patient-panel ul li a p,
+.sidebar nav ul li .schedule-panel ul li a p,
+.sidebar nav ul .accordion .panel ul li a p,
+.sidebar nav ul .accordion .docs-panel ul li a p,
+.sidebar nav ul .accordion .patient-panel ul li a p,
+.sidebar nav ul .accordion .schedule-panel ul li a p,
+.sidebar nav ul details .panel ul li a p,
+.sidebar nav ul details .docs-panel ul li a p,
+.sidebar nav ul details .patient-panel ul li a p,
+.sidebar nav ul details .schedule-panel ul li a p {
+  font-size: 0.75rem;
+}
+.sidebar nav ul details {
+  display: grid !important;
+}
+.sidebar nav ul details summary {
+  display: flex !important;
+  list-style: none !important;
+}
+
+@media screen and (prefers-color-scheme: dark) and (max-width: 612px) {
+  .sidebar {
+    width: 0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .sidebar nav {
+    display: flex;
+  }
+  .sidebar nav ul {
+    display: flex;
+    align-items: baseline;
+  }
+  .sidebar nav ul li,
+.sidebar nav ul .accordion,
+.sidebar nav ul details {
+    color: rgb(255, 255, 255);
+    display: flex;
+  }
+  .sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+    color: rgb(255, 255, 255);
+    transition: margin 0.125s ease-out;
+    filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.15));
+  }
+  .sidebar nav ul li:hover a,
+.sidebar nav ul li:hover summary,
+.sidebar nav ul .accordion:hover a,
+.sidebar nav ul .accordion:hover summary,
+.sidebar nav ul details:hover a,
+.sidebar nav ul details:hover summary {
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul li a,
+.sidebar nav ul li summary,
+.sidebar nav ul .accordion a,
+.sidebar nav ul .accordion summary,
+.sidebar nav ul details a,
+.sidebar nav ul details summary {
+    display: flex;
+    flex-direction: row !important;
+    gap: 0 1rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.4s;
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul li a .sidebar-paragraph,
+.sidebar nav ul li summary .sidebar-paragraph,
+.sidebar nav ul .accordion a .sidebar-paragraph,
+.sidebar nav ul .accordion summary .sidebar-paragraph,
+.sidebar nav ul details a .sidebar-paragraph,
+.sidebar nav ul details summary .sidebar-paragraph {
+    display: flex;
+    align-items: center;
+  }
+  .sidebar nav ul li a:hover,
+.sidebar nav ul li summary:hover,
+.sidebar nav ul .accordion a:hover,
+.sidebar nav ul .accordion summary:hover,
+.sidebar nav ul details a:hover,
+.sidebar nav ul details summary:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 149, 255);
+    border-radius: 1rem;
+  }
+  .sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul .panel,
+.sidebar nav ul .docs-panel,
+.sidebar nav ul .patient-panel {
+    display: none;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+  }
+  .sidebar nav ul .panel ul,
+.sidebar nav ul .docs-panel ul,
+.sidebar nav ul .patient-panel ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    width: 100%;
+  }
+  .sidebar nav ul .panel ul li,
+.sidebar nav ul .docs-panel ul li,
+.sidebar nav ul .patient-panel ul li {
+    display: flex;
+    gap: 1rem;
+  }
+  .sidebar nav ul .panel ul li:hover,
+.sidebar nav ul .docs-panel ul li:hover,
+.sidebar nav ul .patient-panel ul li:hover {
+    background-color: rgb(0, 149, 255);
+  }
+  .sidebar nav ul .panel ul li a p,
+.sidebar nav ul .docs-panel ul li a p,
+.sidebar nav ul .patient-panel ul li a p {
+    font-size: 0.9rem;
+  }
+  .sidebar nav ul details {
+    display: flex !important;
+  }
+  .sidebar nav ul details summary {
+    display: flex !important;
+    list-style: none !important;
+  }
+}
+#modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#modal-wrapper .modal {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  display: grid;
+  filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.25));
+  padding: 2rem;
+  width: auto;
+}
+#modal-wrapper .modal #modal-content {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+#modal-wrapper .modal #modal-content a {
+  color: rgb(255, 255, 255);
+  background: rgb(9, 38, 112);
+  text-decoration: none;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+#modal-wrapper .modal #modal-content form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+#modal-wrapper .modal #modal-content form input {
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background: rgb(9, 38, 112);
+  padding: 0.5rem 1.5rem;
+  border: none;
+}
+#modal-wrapper .modal #modal-content form input:hover {
+  filter: brightness(0.8);
+}
+#modal-wrapper .modal #modal-content form input[type=button] {
+  color: rgb(0, 149, 255);
+  background: rgb(255, 255, 255);
+  border: 0.0625rem solid rgb(0, 149, 255);
+}
+#modal-wrapper .modal span.close-icon {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+}
+#modal-wrapper .modal span.warning-icon {
+  font-size: 5rem !important;
+  color: #00f;
+  border: 4px solid;
+  border-radius: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+#modal-wrapper .modal .modal-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+#modal-wrapper .modal .modal-input textarea {
+  resize: none;
+  height: 5rem;
+}
+#modal-wrapper .modal button {
+  background-color: rgb(9, 38, 112);
+  color: rgb(255, 255, 255);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 2rem 0;
+}
+#modal-wrapper .modal h2 {
+  padding: 3rem 0;
+}
+#modal-wrapper .modal h2#scheduled-appointment {
+  padding: 1rem 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #fff !important;
+  scroll-behavior: smooth;
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+select {
+  border: none;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 3rem 6rem;
+}
+.social h2 {
+  font-size: 1.5rem !important;
+}
+.social .social-media-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  align-items: center;
+  gap: 1rem;
+}
+.social .social-media-group .social-media a {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: rgb(30, 73, 182);
+}
+
+.overlay-menu {
+  background: rgb(20, 40, 112);
+  display: none;
+  height: 100%;
+  padding: 2rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 15rem;
+}
+.overlay-menu .close {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 1rem;
+}
+.overlay-menu .close .close-icon {
+  padding: 0.5rem;
+  background-color: rgb(0, 149, 255);
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.overlay-menu ul {
+  display: grid;
+  list-style: none;
+  gap: 1.25rem;
+}
+.overlay-menu ul li a {
+  color: rgb(0, 149, 255);
+}
+.overlay-menu ul li a:hover {
+  border-bottom: 0.0625rem solid rgb(0, 149, 255);
+}
+
+.move-top {
+  align-items: center;
+  background-color: rgb(0, 149, 255);
+  border-radius: 50%;
+  bottom: 2rem;
+  cursor: pointer;
+  display: grid;
+  padding: 1rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 6;
+}
+.move-top span {
+  color: rgb(255, 255, 255);
+}
+
+.share {
+  background-color: rgb(0, 149, 255);
+  border-radius: 50%;
+  bottom: 6rem;
+  color: rgb(9, 38, 112);
+  padding: 1rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 7;
+}
+.share a {
+  display: grid;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.vertical-content {
+  flex-direction: column !important;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 10vh;
+  background: rgb(20, 40, 112);
+}
+footer span {
+  color: rgb(255, 255, 255);
+}
+
+.no-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.no-info span {
+  font-size: 3rem;
+  color: lightblue;
+}
+
+.hero {
+  background: rgb(255, 255, 255);
+  height: 100vh;
+  padding: 2rem 5rem 0 5rem;
+}
+.hero header {
+  background: linear-gradient(to right, transparent, rgba(82, 151, 255, 0.04));
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+.hero header nav img {
+  width: 10rem;
+}
+.hero header nav .nav-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero header nav .nav-group ul li {
+  background: none;
+  outline: 0.0625rem solid rgb(30, 73, 182);
+  filter: none;
+}
+.hero header nav .nav-group ul li a {
+  color: rgb(30, 73, 182);
+  gap: 0.5rem;
+}
+.hero header nav .nav-group ul li a span {
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+.hero header nav .nav-group ul li:hover {
+  background-color: rgb(30, 73, 182);
+  transition: all 1s;
+}
+.hero header nav .nav-group ul li:hover a,
+.hero header nav .nav-group ul li:hover span {
+  color: rgb(255, 255, 255) !important;
+}
+.hero header nav .nav-group .menu-overlay {
+  color: rgb(30, 73, 182);
+  font-size: 2rem;
+}
+.hero header nav .nav-group .menu-overlay:hover {
+  cursor: pointer;
+}
+.hero section {
+  display: flex;
+  height: 83%;
+  width: 100%;
+}
+.hero section .hero-title,
+.hero section .hero-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.hero section .hero-title {
+  flex-direction: column;
+}
+.hero section .hero-title h1 {
+  font-size: 2.25rem;
+  color: rgb(30, 73, 182);
+  background: linear-gradient(to right, rgb(0, 149, 255), rgb(20, 40, 112), rgb(0, 149, 255));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.hero section .hero-title span {
+  color: rgb(112, 112, 112);
+}
+.hero section .hero-title span span {
+  color: rgb(255, 255, 255);
+  background: rgb(30, 73, 182);
+  padding: 0.03125rem 0.5rem;
+  border-radius: 0.65rem;
+  /*&::before {
+      position: absolute;
+      content: "ideal";
+      height: 25px;
+      width: 49px;
+      transform: translate(-5px, -8px);
+      z-index: 1;
+      padding: .25rem;
+  }*/
+}
+.hero section .hero-title a {
+  border: 1px solid rgb(0, 149, 255);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.2rem;
+  margin: 2rem 0;
+  color: rgb(0, 149, 255);
+}
+.hero section .hero-title a:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(0, 149, 255);
+  transition: all 1s;
+}
+.hero section .hero-image {
+  align-items: center;
+}
+.hero section .hero-image img {
+  width: 110%;
+}
+@media screen and (max-width: 800px) {
+  .hero section {
+    flex-direction: column-reverse;
+    height: 100%;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .hero section .hero-image,
+.hero section .hero-title {
+    width: 100%;
+  }
+  .hero section .hero-title {
+    padding-bottom: 4rem;
+  }
+}
+
+.about {
+  padding: 2rem 6rem;
+}
+.about h2 {
+  text-align: center;
+  color: rgb(9, 38, 112);
+  padding: 2rem 0 4rem;
+}
+.about .about-content {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 800px) {
+  .about .about-content {
+    flex-direction: column;
+  }
+}
+.about .about-content .about-text,
+.about .about-content svg {
+  max-width: 45%;
+  padding: 0 1rem;
+}
+@media (max-width: 800px) {
+  .about .about-content .about-text,
+.about .about-content svg {
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+}
+.about .about-content .about-text {
+  text-indent: 2rem;
+  text-align: justify;
+}
+
+.usability {
+  padding: 2rem 5rem;
+}
+.usability h2 {
+  text-align: center;
+  color: rgb(9, 38, 112);
+  padding: 2rem 0 4rem;
+}
+.usability .app-usability {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  gap: 1rem;
+  /*display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
+  height: auto;
+  flex: 1;
+  width: 100%;*/
+}
+.usability .app-usability .app-usability-track {
+  display: flex;
+  width: auto;
+  gap: 1rem;
+  -webkit-animation: scroll-horizontal 20s linear infinite;
+          animation: scroll-horizontal 20s linear infinite;
+}
+.usability .app-usability .app-usability-track .item {
+  height: auto;
+  width: 22rem;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  flex-direction: column;
+  outline: 0.0625rem solid rgba(164, 164, 255, 0.651);
+  gap: 1.5rem;
+  color: rgb(30, 73, 182);
+  border-radius: 1rem;
+}
+.usability .app-usability .app-usability-track .item .item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.usability .app-usability .app-usability-track .item .item-header span {
+  font-size: 3rem;
+}
+.usability .app-usability .app-usability-track .item small {
+  color: rgb(112, 112, 112);
+}
+
+@-webkit-keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-6rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-6rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.users-testemonials {
+  padding: 2rem 5rem 2rem 5rem;
+}
+.users-testemonials h2 {
+  text-align: center;
+  color: rgb(9, 38, 112);
+  padding: 2rem 0;
+}
+.users-testemonials .card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1rem;
+  margin: auto;
+}
+.users-testemonials .card-group .card {
+  display: grid;
+  background: rgb(255, 255, 255);
+  outline: 0.0625rem solid rgba(164, 164, 255, 0.651);
+  border-radius: 0.5rem;
+  filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.15));
+  padding: 2rem;
+}
+.users-testemonials .card-group .card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  padding: 1rem 0;
+}
+.users-testemonials .card-group .card .card-header span {
+  font-size: 2.5rem;
+}
+.users-testemonials .card-group .card h4,
+.users-testemonials .card-group .card small {
+  text-align: center;
+}
+.users-testemonials .card-group .card small {
+  padding-bottom: 0.5rem;
+  color: rgb(112, 112, 112);
+}
+.users-testemonials .card-group .card q {
+  text-align: justify;
+  color: rgb(20, 40, 112);
+  font-size: 0.85rem;
+}
+.users-testemonials .card-group .card:hover {
+  filter: none;
+  transform: translateY(0.25rem);
+}
+
+.active-menu {
+  display: block !important;
+  -webkit-animation: toggleMenu 1.85s ease;
+          animation: toggleMenu 1.85s ease;
+}
+
+.hide-menu {
+  display: none !important;
+}
+
+.social h2 {
+  padding: 2rem 0;
+  color: rgb(0, 149, 255);
+}
+
+.dots-group {
+  bottom: 0rem;
+  display: grid;
+  gap: 1rem;
+  position: fixed;
+  left: 2rem;
+  height: 100vh;
+  align-content: center;
+}
+.dots-group .dots {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+  color: rgb(0, 149, 255);
+  border: 1px solid;
+  text-decoration: none;
+}
+.dots-group .dots:hover {
+  background: rgb(0, 149, 255);
+}
+
+@-webkit-keyframes toggleMenu {
+  0% {
+    width: 5rem;
+  }
+  100% {
+    width: 15rem;
+  }
+}
+
+@keyframes toggleMenu {
+  0% {
+    width: 5rem;
+  }
+  100% {
+    width: 15rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .hero {
+    padding: 2rem 0.5rem !important;
+    height: 70vh !important;
+  }
+  .hero section {
+    padding: 3rem 0 0 0 !important;
+  }
+}
+@media screen and (max-width: 720px) {
+  .hero {
+    padding: 2rem;
+    height: 80vh;
+  }
+  .hero section {
+    padding: 0 1rem;
+  }
+  .users-testemonials,
+.about {
+    padding: 2rem;
+  }
+  .about-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 840px) {
+  .hero {
+    padding: 2rem;
+    height: 62vh;
+  }
+  .hero section {
+    padding: 0 1rem;
+  }
+  .users-testemonials,
+.about {
+    padding: 2rem;
+  }
+}
+/*
+@media(prefers-color-scheme:'dark') {
+
+    body,
+    .hero,
+    .hero header,
+    .users-testemonials>.card-group>.card {
+        background: inherit
+    }
+
+    .hero {
+        header {
+            nav {
+                .nav-group {
+                    ul {
+                        li {
+                            background: $blue200;
+                            outline: none;
+                            a{
+                                color: white !important;
+                            }
+                        }
+                    }
+                    span.menu-overlay{
+                        color: $blue200;
+                    }
+                }
+            }
+        }
+    }
+
+    .about,
+    .usability,
+    .users-testemonials {
+        h2 {
+            color: $blue200;
+        }
+
+        .about-text,
+        .app-usability>.item,
+        .card-group>.card {
+            color: $blue200;
+
+            small {
+                padding-bottom: .5rem;
+                color: #8ea4db;
+            }
+
+            q {
+                text-align: justify;
+                color: $blue200;
+                font-size: .85rem;
+            }
+        }
+    }
+
+    .social{
+        h2{
+            color: $blue200;
+        }
+        p{
+            color: $blue400;
+        }
+    }
+}*//*# sourceMappingURL=pages.css.map */

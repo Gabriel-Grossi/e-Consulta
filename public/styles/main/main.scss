@@ -1,0 +1,766 @@
+@import "../global";
+
+main {
+    .home-title {
+        align-items: center !important;
+        //width: calc(100% - 15rem);
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 3rem;
+        padding: 0 1rem !important;
+
+        img {
+            width: max(41rem, 30%);
+            margin: auto;
+        }
+
+        small {
+            color: #00f;
+        }
+    }
+
+    .content {
+        padding: 3rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media screen and (max-width: 612px) {
+            width: 100%;
+            padding: 3rem 1.5rem;
+        }
+
+        h1 {
+            color: $blue500;
+            font-size: 2rem;
+            //padding: 2rem 0;
+        }
+
+        h3 {
+            color: $blue400;
+        }
+
+        fieldset {
+            border: 1px solid rgba(0, 0, 0, .15);
+            padding: 1rem;
+
+            legend {
+                padding: 1rem 0;
+            }
+        }
+
+        .content-subtitle {
+            color: $grey800;
+        }
+
+        .form-search {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+
+            @media screen and (max-width: 480px) {
+                width: 100%;
+            }
+
+            .patientData {
+                color: $grey800;
+                padding: .25rem 0;
+            }
+
+            .form-input-group {
+                display: flex;
+                gap: 2rem;
+                flex-direction: column !important;
+
+                .form-input-field {
+                    display: flex;
+                    flex-direction: column;
+
+                    .form-input {
+                        align-items: center;
+                        display: flex;
+                        gap: 1rem;
+                        margin-top: 2.5rem;
+
+                        .labelRadio {
+                            color: $blue900
+                        }
+                    }
+
+                    input[type="text"] {
+                        width: 20rem;
+
+                        &:focus-visible {
+                            border: none;
+                            outline: .0625rem solid $blue200;
+                        }
+                    }
+
+                    input[type="text"],
+                    input[type="number"],
+                    textarea {
+                        padding: .25rem .5rem;
+                    }
+
+                    textarea {
+                        height: 10rem;
+                    }
+                }
+            }
+
+            input[type="submit"] {
+                background: $blue800;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                margin-top: 2rem;
+                padding: .5rem 1rem;
+                width: fit-content;
+                height: auto;
+            }
+
+            input[type="text"] {
+                padding: .125rem .25rem;
+            }
+        }
+
+        .results-items-amount {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .results-item-amount-description {
+            color: $grey800;
+        }
+
+        .patient-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+            grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+            gap: 1rem;
+            height: auto;
+            padding: 1rem .25rem;
+            overflow: auto;
+
+            .patient {
+                animation: fadeProduct .245s ease-out;
+                background-color: $white;
+                border: 1px solid rgb(1, 1, 102,.15);
+                border-radius: .5rem;
+                color: $blue500;
+                display: flex;
+                filter: drop-shadow(.125rem .25rem .25rem $black15);
+                flex-direction: column;
+                gap: 1rem;
+                justify-content: center;
+                padding: 1rem;
+                width: 100%;
+
+                &:hover {
+                    filter: none;
+                    box-shadow: rgb(30, 73, 182) -5px 0 0;
+                }
+
+                form {
+                    input {
+                        width: fit-content;
+                        margin: 1rem 0;
+                        padding: .25rem .5rem;
+                        background: none;
+                        outline: .0625rem solid $blue400;
+                        color: $blue400;
+                        border: none;
+
+                        &:hover {
+                            outline: none;
+                            background: $blue400;
+                            color: $white;
+                            padding: .25rem .5rem;
+                        }
+                    }
+                }
+
+                .patient-last-seen {
+                    color: $grey800;
+                }
+
+                .actions-group {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .actions {
+                        display: flex;
+                    }
+
+                    a {
+                        padding: .35rem .85rem;
+                        background: $blue900;
+                        color: $white;
+                        border-radius: .25rem;
+                    }
+
+                }
+
+                h3 {
+                    color: $blue200;
+                }
+
+            }
+        }
+
+        .functions-patient-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+            
+            gap: 1rem;
+            height: auto;
+            padding: 1rem .25rem;
+            overflow: auto;
+            width: 100%;
+
+            .functions-patient {
+                animation: fadeProduct .245s ease-out;
+                background-color: $white;
+                border-radius: .5rem;
+                color: $blue500;
+                display: flex;
+                filter: drop-shadow(.125rem .25rem .25rem $black15);
+                flex-direction: column;
+                gap: 1rem;
+                justify-content: center;
+                padding: 1rem;
+                width: 100%;
+                align-items: center;
+
+                &:hover {
+                    filter: none;
+                    outline: .0625rem solid $black25;
+                }
+
+                span{
+                    font-size: 4rem;
+                }
+                .actions-group {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    a {
+                        //border-bottom: .125rem solid $blue900;
+                        background: none;
+                        border-radius: 0;
+                        color: $blue400;
+                        padding: .5rem 0;
+                        width: auto;
+                        span{
+                            font-size: 24px;
+                            height: 100%;
+                            vertical-align: middle;
+                        }
+
+                        &:hover {
+                            border: none;
+
+                            &::after {
+                                transform: scaleX(1);
+                            }
+                        }
+
+                        &::after {
+                            display: flex;
+                            content: '';
+                            border-bottom: solid 3px $blue400;
+                            transform: scaleX(0);
+                            transition: transform 250ms ease-in-out;
+                            transform-origin: 0% 50%;
+                        }
+                    }
+
+                }
+
+                h3 {
+                    color: $blue200;
+                }
+
+            }
+        }
+
+        .content-prescription,
+        .content-appointment {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem 0;
+            margin: 3rem 0;
+
+            button {
+                width: fit-content;
+                background: $blue800;
+                padding: .5rem 1rem;
+                margin: 1rem 0;
+                color: $white;
+
+                &[type="reset"] {
+                    background: $white;
+                    color: $blue800;
+                    outline: .0625rem solid $blue800;
+                    margin-left: 1rem;
+
+                }
+            }
+
+            form {
+
+                //display: flex !important;
+                //flex-direction: column;
+                //gap: 1.25rem !important;
+                .form-input-group {
+                    gap: 1.25rem !important;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+                    grid-template-rows: repeat(auto-fill, minmax(5rem, 1fr));
+                    align-items: center;
+
+                    .prescription-input,
+                    .appointment-input,
+                    .form-input-field,
+                    .form-input-group {
+                        display: flex;
+                        flex-direction: column !important;
+
+                        //width: 25rem !important;
+                        textarea {
+                            resize: none;
+                            height: 7rem;
+                            margin: .25rem 0;
+                        }
+
+                        label {
+                            color: $grey800;
+                        }
+
+                        input {
+                            border-left: none;
+                            border-right: none;
+                            border-top: none;
+                            padding: .25rem .5rem;
+                        }
+                    }
+                }
+            }
+
+            .prescription-input,
+            .appointment-input,
+            .form-input-field,
+            .form-input-group {
+                display: flex;
+                flex-direction: column !important;
+
+                //width: 25rem !important;
+                textarea {
+                    resize: none;
+                    height: 7rem;
+                    margin: .25rem 0;
+                }
+
+                label {
+                    color: $grey800;
+                }
+
+                input,
+                select {
+                    border-left: none;
+                    border-right: none;
+                    border-top: none;
+                    padding: .25rem .5rem;
+                    width: 85% !important;
+                }
+
+                input[type='submit'].search-button {
+                    border: 1px solid blue !important;
+                    background: white;
+                    padding: .85rem !important;
+                    border-radius: .5rem;
+                    width: fit-content !important;
+
+                }
+            }
+        }
+
+        .patient-content {
+            .patient-name {
+                color: $blue200;
+            }
+
+            .actions-patient {
+                position: absolute;
+                bottom: 2rem;
+                right: 2rem;
+                background-color: $blue400;
+                color: $white;
+                display: flex;
+                padding: .5rem .75rem;
+                gap: 1rem;
+                border-radius: .5rem;
+            }
+
+            .patient-info {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem 0;
+
+                h4 {
+                    color: $blue400;
+                }
+
+                .patient-info-details {
+                    display: flex;
+                    flex-direction: column;
+                    color: $blue500;
+                }
+            }
+        }
+    }
+}
+
+.active {
+    display: block;
+    /*top: 3.5rem;*/
+    width: 19rem;
+}
+
+.active-content {
+    display: flex;
+    left: 22rem !important;
+    position: absolute;
+    width: calc(100% - 25rem) !important;
+    //margin: 3rem 0 !important;
+    height: calc(100% - 1rem);
+    padding: 2rem 0 !important;
+    justify-content: flex-start !important;
+
+    h1 {
+        padding-top: 2rem;
+    }
+
+    img {
+        width: calc(100% - 35rem) !important;
+    }
+}
+
+.active-accordion {
+    display: grid !important;
+}
+
+.active-modal {
+    display: flex !important;
+}
+/*
+@media(prefers-color-scheme:'dark') {
+    body {
+        background: rgb(0, 0, 26);
+    }
+
+    main {
+        .content {
+            h1 {
+                color: $blue200;
+            }
+
+            h3 {
+                color: $blue400;
+            }
+
+            .content-subtitle {
+                color: $blue500;
+            }
+
+            .form-search {
+                .patientData {
+                    color: $blue800;
+                    padding: .25rem 0;
+                }
+
+                .form-input-group {
+                    .form-input-field {
+                        .form-input {
+                            .labelRadio {
+                                color: $blue800
+                            }
+                        }
+
+                        input[type="text"] {
+                            width: 20rem;
+
+                            &:focus-visible {
+                                border: none;
+                                outline: .0625rem solid $blue200;
+                            }
+                        }
+
+                        input[type="text"],
+                        input[type="number"],
+                        textarea {
+                            padding: .25rem .5rem;
+                            color: $blue200;
+                        }
+
+                        textarea {
+                            height: 10rem;
+                        }
+                    }
+                }
+
+                input[type="submit"] {
+                    background: $blue400;
+                    border: none;
+                    color: $white;
+                    cursor: pointer;
+                    margin-top: 2rem;
+                    padding: .5rem 1rem;
+                    width: fit-content;
+                    height: auto;
+                }
+
+                input[type="text"] {
+                    padding: .125rem .25rem;
+                }
+            }
+
+            .results-items-amount {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .results-item-amount-description {
+                color: $grey800;
+            }
+
+            table {
+                padding-top: 1rem;
+
+                .col1,
+                .col2,
+                .col3,
+                .col4,
+                .col5 {
+                    color: $blue200;
+                }
+            }
+
+            .patient-group {
+                display: grid;
+                //grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+                //grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
+                gap: 1rem;
+                height: auto;
+                padding: 1rem .25rem;
+                overflow: auto;
+
+                .patient {
+                    border: 1px solid rgb(1, 1, 102);
+                    color: $blue200  !important;
+                    background: none;
+                    filter: drop-shadow(.125rem .25rem .25rem $black15);
+
+                    .dados {
+                        .col2 {
+                            .patient-name {
+                                color: $blue200;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background: rgb(1, 1, 102);
+                        filter: none;
+                        outline: .0625rem solid $black25;
+                    }
+
+                    form {
+                        input {
+                            width: fit-content;
+                            margin: 1rem 0;
+                            padding: .25rem .5rem;
+                            background: none;
+                            outline: .0625rem solid $blue400;
+                            color: $blue400;
+                            border: none;
+
+                            &:hover {
+                                outline: none;
+                                background: $blue400;
+                                color: $white;
+                                padding: .25rem .5rem;
+                            }
+                        }
+                    }
+                    .actions{
+                        display: flex;
+                        justify-content: flex-end;
+                        span{
+                            padding: .25rem;
+                            border-radius: .5rem;
+                            &:hover{
+                                background-color: #003dd6;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .functions-patient-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+                grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+                overflow: auto;
+                width: 100%;
+
+                .functions-patient {
+                    animation: fadeProduct .245s ease-out;
+                    background-color: transparent;
+                    border: 1px solid rgb(1, 1, 102);
+                    border-radius: .5rem;
+                    color: $blue500;
+                    display: flex;
+                    filter: drop-shadow(.125rem .25rem .25rem $black15);
+                    flex-direction: column;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                    width: 100%;
+
+                    &:hover {
+                        filter: none;
+                        outline: .0625rem solid $black25;
+                    }
+
+                    span {
+                        font-size: 4rem;
+                    }
+
+                    .actions-group {
+                        a {
+                            border-radius: 0;
+                            color: $white;
+                            width: auto;
+                            span{
+                                font-size: 24px;
+                                height: 100%;
+                                vertical-align: middle;
+                            }
+
+                            &:hover {
+                                border: none;
+
+                                &::after {
+                                    transform: scaleX(1);
+                                }
+                            }
+
+                            &::after {
+                                display: flex;
+                                content: '';
+                                border-bottom: solid 3px $blue400;
+                                transform: scaleX(0);
+                                transition: transform 250ms ease-in-out;
+                                transform-origin: 0% 50%;
+                            }
+                        }
+                    }
+                    
+                    h3 {
+                        color: $blue200;
+                    }
+
+                }
+            }
+
+            .content-prescription,
+            .content-appointment,
+            .content-search {
+                button {
+                    background: $blue800;
+                    color: $white;
+
+                    &[type="reset"] {
+                        background: $white;
+                        color: $blue800;
+                        outline: .0625rem solid $blue800;
+                    }
+                }
+
+                form {
+                    .form-input-group {
+
+                        .prescription-input,
+                        .appointment-input,
+                        .form-input-field,
+                        .form-input-group {
+                            textarea {
+                                border: 1px solid #00f;
+                                color: $blue200;
+                                background: none;
+                                padding: .5rem;
+                            }
+
+                            label {
+                                color: $blue400;
+                            }
+
+                            input,
+                            select {
+                                background: none;
+                                border-bottom: 1px solid #00f;
+                                color: $blue200;
+                            }
+                        }
+                    }
+                }
+
+                .prescription-input,
+                .appointment-input,
+                .form-input-field,
+                .form-input-group {
+                    display: flex;
+                    flex-direction: column !important;
+
+                    //width: 25rem !important;
+                    textarea {
+                        resize: none;
+                        height: 7rem;
+                        margin: .25rem 0;
+                    }
+
+                    label {
+                        color: $grey800;
+                    }
+
+                    input,
+                    select {
+                        border-left: none;
+                        border-right: none;
+                        border-top: none;
+                        padding: .25rem .5rem;
+                        width: 85% !important;
+                    }
+
+                    input[type='submit'].search-button {
+                        border: 1px solid blue !important;
+                        background: white;
+                        padding: .85rem !important;
+                        border-radius: .5rem;
+                        width: fit-content !important;
+
+                    }
+                }
+            }
+        }
+    }
+}
+*/

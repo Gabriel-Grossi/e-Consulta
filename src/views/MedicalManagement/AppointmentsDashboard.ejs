@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/management/management.css">
+    <link rel="stylesheet" href="../../styles/patient/patient.css">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include("../parts/header") %>
+    <div class="greetings-hero">
+        <div class="greetings-text">
+            <h1 id="greetings"></h1>
+            <small>Seja bem-vindo(a) ao Portal do Gestor</small>
+        </div>
+        <div class="greetings-image">
+            <img src="../assets/logo.svg" alt="">
+        </div>
+    </div>
+    <main>
+        <section class="content">
+            <h1>Consulta</h1>
+            <div class="functions-patient-group">
+                <div class="functions-patient">
+                    <span class="material-icons-round">calendar_month</span>
+                    <h3 class='patient-name'>
+                        <%= appointmentTotalCount %>
+                    </h3>
+                    <small>neste ano</small>
+                </div>
+                <div class="functions-patient">
+                    <span class="material-icons-round">edit_note</span>
+                    <h3 class='patient-name'>
+                        <%= appointmentTotalCountMonth %>
+                    </h3>
+                    <small>neste mês</small>
+                </div>
+                <div class="functions-patient">
+                    <span class="material-icons-round">post_add</span>
+                    <h3 class='patient-name'>
+                        <%= appointmentTotalCountNextMonth %>
+                    </h3>
+                    <small>no próximo mês</small>
+                </div>
+
+            </div>
+            <div class="stats">
+                <div class="total-appointments-doctor-group">
+                    <h2>Total de Consultas/médico</h2>
+                    <table class="total-appointments-doctor">
+                        <tr>
+                            <th>Nome do Médico</th>
+                            <th>Total de Consultas</th>
+                        </tr>
+                        <% appointmentTotalCountPerDoctor.forEach(appointmentTotalCountPerDoctor=> { %>
+                            <tr>
+                                <td>
+                                    <%= appointmentTotalCountPerDoctor.doctor %>
+                                </td>
+                                <td>
+                                    <%= appointmentTotalCountPerDoctor.value %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+                <div class="total-appointments-doctor-group">
+                    <h2>Total de Pacientes/convênio</h2>
+                    <table class="total-appointments-doctor">
+                        <tr>
+                            <th>Nome do Convênio</th>
+                            <th>Total de Pacientes</th>
+                        </tr>
+                        <% appointmentTotalCountPerHealthInsurance.forEach(appointmentTotalCountPerHealthInsurance=> {
+                            %>
+                            <tr>
+                                <td>
+                                    <%= appointmentTotalCountPerHealthInsurance.medicalInsurance %>
+                                </td>
+                                <td>
+                                    <%= appointmentTotalCountPerHealthInsurance.value %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../scripts/hour.js"></script>
+    <script src="../scripts/sec.js"></script>
+
+</body>
+
+</html>

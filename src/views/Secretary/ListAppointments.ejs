@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <title>Listar Consultas | e-Consulta</title>
+</head>
+
+<body>
+    <%- include("../parts/header") %>
+        <main>
+            <%- include("../parts/sidebar_sec") %>
+                <section class="content">
+                    <h1>Listar Consultas</h1>
+                    <small class="content-subtitle">Preencha os campos a seguir para ver as consultas agendadas</small>
+
+                    <div class="results-items-amount">
+                        <div class="results-item-amount-description">
+                            <span>A busca retornou <%= appointmentCount %> </span>
+                        </div>
+                        <div class="results-item-amount-content">
+                            <select name="options-filter" id="options-filter" class="options-filter">
+                                <option value="">Escolha uma opção</option>
+                                <option value="Amil">Amil</option>
+                                <option value="Bradesco">Bradesco</option>
+                                <option value="NotreDame">NotreDame Intermedica</option>
+                                <option value="Sulamerica">Sulamerica</option>
+                                <option value="Transmontano">Transmontano</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="patient-group">
+                        <% appointment.forEach(appointment=> { %>
+                            <div class="patient" data-id="<%= appointment.id %>">
+                                <h3 class='patient-name'>
+                                    <%= appointment.name %>
+                                </h3>
+                                <small>
+                                    Data: <%= new Date(appointment.date).toUTCString().substring(5,16) %>
+                                </small>
+                                <small>
+                                    Horário: <%= appointment.time %>
+                                </small>
+                                <div class="actions-group">
+                                    <div class="actions">
+                                        <span class='material-icons-round'>edit_note</span>
+                                        <span class='material-icons-round'>delete</span>
+                                    </div>
+                                    <a href="/patient/<%= appointment.patientId %>">Ver paciente</a>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                </section>
+        </main>
+        <div id="modal-wrapper">
+            <div class="modal">
+                <span class="material-icons-round close-icon" onclick="">close</span>
+                <span class="material-icons-round warning-icon">warning</span>
+                <h4 id="scheduled-appointment">Você tem certeza que deseja deletar?</h4>
+                <div id="modal-content">
+                    <input type="button" value="Não">
+                    <form action="" method="post">
+                        <input type="submit" value="Sim">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+            integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            const deletePront = document.querySelectorAll(".delete");
+            const editPront = document.querySelectorAll(".edit");
+            const modal = document.getElementById("modal-wrapper");
+
+            const activeModal = () => modal.classList.add("active-modal");
+
+            deletePront.onclick = () => activeModal()
+            editPront.onclick = () => activeModal()
+
+            const close = document.querySelector(".close-icon");
+            close.onclick = () => {
+                modal.classList.remove("active-modal")
+            }
+        </script>
+        <script src="../../scripts/main.js"></script>
+        <script src="../../scripts/sec.js"></script>
+
+</body>
+
+</html>

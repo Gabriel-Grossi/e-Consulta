@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/patient/patient.css">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include("../parts/header") %>
+    <main>
+        <%- include("../parts/sidebar_pac") %>
+        <section class="content">
+            <h1>Reagendar Consulta</h1>
+            <small class="content-subtitle">Preencha os campos a seguir para reagendar consulta.</small>
+            <div class="content-prescription">
+                <form action="/appointment/updateAppointment" method="POST">
+                    <div class="form-input-group">
+                        <div class="prescription-input">
+                            <label for="patientName">Nome do Paciente</label>
+                            <input type="text" name="patientName" placeholder="Insira o nome do paciente"
+                                autofocus>
+                        </div>
+                        <div class="prescription-input">
+                            <label for="patientScheduleHourOld">Horário</label>
+                            <input type="time" name="patientScheduleHourOld" id="patientScheduleHourOld">
+                        </div>
+                        <div class="prescription-input">
+                            <label for="patientScheduleDateOld">Data</label>
+                            <input type="date" name="patientScheduleDateOld" id="patientScheduleDateOld">
+                        </div>
+                        <div class="prescription-input">
+                            <label for="patientDoctorsOld">Médico(a)</label>
+                            <select name="patientDoctorsOld" id="patientDoctorsOld" required>
+                                <option value="#">Selecione um(a) médico(a)</option>
+                                <option value="Dr. Ana Maria Gomes">Dr. Ana Maria Gomes</option>
+                                <option value="Dr. Alberto José Belchior">Dr. Alberto José Belchior
+                                </option>
+                                <option value="Dr. Bruna Mello Siqueira">Dr. Bruna Mello Siqueira
+                                </option>
+                                <option value="Dr. Carlos Eduardo Gomes Lacerda">Dr. Carlos Eduardo Gomes Lacerda</option>
+                                <option value="Dr. Michel Matias de Souza">Dr. Michel Matias de Souza
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-input-group">
+                        <div class="prescription-input">
+                            <label for="patientScheduleHour">Horário</label>
+                            <input type="time" name="patientScheduleHour" id="patientScheduleHour">
+                        </div>
+                        <div class="prescription-input">
+                            <label for="patientScheduleHour">Data</label>
+                            <input type="date" name="patientScheduleDate" id="patientScheduleDate">
+                        </div>
+                        <div class="prescription-input">
+                            <label for="patientDoctors">Médico(a)</label>
+                            <select name="patientDoctors" id="patientDoctors" required>
+                                <option value="#">Selecione um(a) médico(a)</option>
+                                <option value="Dr. Ana Maria Gomes">Dr. Ana Maria Gomes</option>
+                                <option value="Dr. Alberto José Belchior">Dr. Alberto José Belchior
+                                </option>
+                                <option value="Dr. Bruna Mello Siqueira">Dr. Bruna Mello Siqueira
+                                </option>
+                                <option value="Dr. Carlos Eduardo Gomes Lacerda">Dr. Carlos Eduardo
+                                    Gomes Lacerda</option>
+                                <option value="Dr. Michel Matias de Souza">Dr. Michel Matias de Souza
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit">Reagendar Consulta</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../scripts/hour.js"></script>
+    <script src="../scripts/sec.js"></script>
+
+</body>
+
+</html>

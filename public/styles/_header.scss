@@ -1,0 +1,44 @@
+header {
+    width: 100%;
+    /*background-color: $blue800;*/
+    padding: 1.5rem 2.375rem;
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        ul {
+            list-style: none;
+            display: flex;
+            li {
+                background: $red;
+                border-radius: 1rem;
+                padding: .35rem 1rem;
+                justify-content: center;
+                display: flex;
+                filter: drop-shadow(0 .25rem .25rem $black25);
+                a {
+                    align-items: center;
+                    display: flex;
+                    color: $white;
+                    font-weight: 500;
+                    text-decoration: none;
+                    @media screen and (max-width: 350px) {
+                        p{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        span.menu-icon{
+            color: $blue200;
+            cursor: pointer;
+            font-size: 2.5rem !important;
+            z-index: 1;
+            @media(prefers-color-scheme:'light'){
+                color: $blue400;
+            }
+        }
+    }
+}

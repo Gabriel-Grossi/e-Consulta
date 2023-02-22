@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/patient/patient.css">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <nav style="padding: 2rem 3rem;">
+        <img src="../../assets/logoalt.svg" alt="">
+        <ul>
+            <li style="color: aqua; padding: .5rem 1rem; background: #013a5f; margin: 0 1rem; border-radius: 1rem;">
+                <small><%= nome %></small>
+            </li>
+            <li>
+                <a href="/" class="logout">
+                    <span class="material-icons-round">
+                        logout
+                    </span>
+                    <p>Sair</p>
+                </a>
+            </li>
+           
+        </ul>
+    </nav>
+    <div class="greetings-hero">
+        <div class="greetings-text">
+            <h1 id="greetings"></h1>
+            <small>Seja bem-vindo(a) ao Portal do Paciente</small>
+        </div>
+        <div class="greetings-image">
+            <img src="../assets/logo.svg" alt="" >
+        </div>
+    </div>
+    <main>
+        <section class="content">
+            <h2>Consulta</h2>
+            <div class="functions-patient-group">
+                <div class="functions-patient" data-id="">
+                    <span class="material-icons-round">calendar_month</span>
+                    <h3 class='patient-name'>
+                        Agendar Consulta
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/menu/ScheduleAppointment">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div>
+                <div class="functions-patient" data-id="">
+                    <span class="material-icons-round">edit_note</span>
+                    <h3 class='patient-name'>
+                        Cancelar Consulta
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/menu/CancelAppointment">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div>
+                <!--div class="functions-patient" data-id="">
+                    <span class="material-icons-round">post_add</span>
+                    <h3 class='patient-name'>
+                        Reagendar Consulta
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/menu/RescheduleAppointment">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div-->
+                <!--div class="functions-patient" data-id="">
+                    <span class="material-icons-round">view_list</span>
+                    <h3 class='patient-name'>
+                        Histórico de Consultas
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/menu/ListAppointments">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div-->
+
+            </div>
+            <!--h2>Documentos</h2>
+            <div class="functions-patient-group">
+                <div class="functions-patient" data-id="">
+                    <span class="material-icons-round">edit_note</span>
+                    <h3 class='patient-name'>
+                        Receituários
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/patient/">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div>
+
+                <div class="functions-patient" data-id="">
+                    <span class="material-icons-round">library_books</span>
+                    <h3 class='patient-name'>
+                        Atestado Médico
+                    </h3>
+                    <div class="actions-group">
+                        <a href="/patient/">Acessar <span class="material-icons-round">navigate_next</span></a>
+                    </div>
+                </div>
+            </div-->
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../scripts/hour.js"></script>
+    <script src="../scripts/sec.js"></script>
+
+</body>
+
+</html>

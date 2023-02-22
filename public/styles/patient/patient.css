@@ -1,0 +1,90 @@
+nav {
+  display: flex;
+  padding: 2rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  gap: 1rem;
+}
+nav ul li a.sidebar-list-item {
+  align-items: center;
+  display: flex;
+  color: rgb(255, 255, 255) !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+@media screen and (max-width: 350px) {
+  nav ul li a.sidebar-list-item p {
+    display: none;
+  }
+}
+nav ul li a.logout {
+  border-radius: 1rem;
+  padding: 0.35rem 1rem;
+  display: flex;
+  background: red;
+  color: white;
+}
+
+.greetings-hero {
+  align-items: center;
+  background: url(https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+  display: flex;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+  height: 19rem;
+  margin: 0 3rem;
+  width: auto;
+}
+.greetings-hero .greetings-text,
+.greetings-hero .greetings-image {
+  width: 50%;
+}
+.greetings-hero .greetings-text {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 3rem;
+}
+.greetings-hero .greetings-text h1 {
+  color: #34aaf4;
+}
+.greetings-hero .greetings-text small {
+  color: #238aca;
+}
+.greetings-hero .greetings-image {
+  display: flex;
+  background: linear-gradient(92deg, transparent, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85));
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.greetings-hero .greetings-image img {
+  width: 7.5rem;
+  height: 7.5rem;
+}
+
+.home-title h2 {
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  color: #0095ff;
+}
+.home-title h2::before {
+  position: absolute;
+  content: "";
+  height: 2rem;
+  width: 0.25rem;
+  background: #0095ff;
+  transform: translateX(-0.95rem);
+}/*# sourceMappingURL=patient.css.map */

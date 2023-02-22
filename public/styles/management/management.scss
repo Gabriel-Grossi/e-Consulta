@@ -1,0 +1,35 @@
+@import "../global";
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem 0;
+
+    .total-appointments-doctor-group {
+        width: 50%;
+
+        h2 {
+            color: $blue200;
+        }
+    }
+
+    .total-appointments-doctor {
+        width: 100%;
+
+        tr {
+            background: rgb(207, 234, 243);
+            border-radius: 1rem;
+            text-align: center;
+
+            th {
+                background: $blue900;
+                color: $white;
+            }
+
+            td {
+                padding: .25rem .25rem;
+            }
+        }
+    }
+}

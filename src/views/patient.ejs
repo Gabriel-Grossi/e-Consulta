@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title><% patient.forEach(patient=> { %> <%= patient.nome %>  <% }); %>| Prontuário</title>
+</head>
+
+<body>
+    <%- include("parts/header") %>
+        <main>
+            <%- include("parts/sidebar") %>
+                <section class="content">
+                    <div class="patient">
+                        <% patient.forEach(patient=> { %>
+                            <div class="patient-content" data-id="<%= patient.id %>">
+                                <h2 class='patient-name'>
+                                    <%= patient.name %>
+                                </h2>
+                                <div class="actions-patient">
+                                    <span class='material-icons-round'>edit_note</span>
+                                    <span class='material-icons-round'>delete</span>
+                                </div>
+                                <div class="patient-info">
+                                    <h4>
+                                        <%= patient.medicalInsurance %>
+                                    </h4>
+                                    <div class="patient-info-details">
+                                        <div class="patient-info-details-item">
+                                            <label for="patient-email">E-mail:</label>
+                                            <span class="patient-email">
+                                                <%= patient.email %>
+                                            </span>
+                                        </div>
+                                        <div class="patient-info-details-item">
+                                            <label for="patient-birthday">Nascido(a) em:</label>
+                                            <span>
+                                                <%= patient.birthday %>
+                                            </span>
+                                        </div>
+                                        <div class="patient-info-details-item">
+                                            <label for="patient-phone">Contato:</label>
+                                            <span>
+                                                <%= patient.phone %>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3>Prontuários</h3>
+                                <% if (isNoRecords){ %>
+                                    <%- include('parts/no-records') %>
+                                <% } %>
+                                <div class="patient-group">
+                                    <% records.forEach(record=> { %>
+                                        <div class="patient" data-id="<%= record.id %>">
+                                            <p>
+                                                <%= record.description %>
+                                            </p>
+                                            <small><b>Última modificação: </b><%= record.registerTime %></small>
+                                            <div class="actions">
+                                                <span class='material-icons-round'>edit_note</span>
+                                                <span class='material-icons-round'>delete</span>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                </div>
+    
+                            </div>
+                            <% }); %>
+                    </div>
+                    
+                            <!--div class="content-prescription">
+                        <button id="createPrescription">Gerar Receituário</button>
+                    </div-->
+                </section>
+        </main>
+        <div id="modal-wrapper">
+            <div class="modal">
+                <span class="material-icons-round close-icon">close</span>
+                <h2>Emitir Receituário</h2>
+                <div class="modal-input">
+                    <label for="patientName">Nome do Paciente</label>
+                    <input type="text" id="patientName">
+                </div>
+                <div class="modal-input">
+                    <label for="patientAge">Idade</label>
+                    <input type="text" id="patientAge">
+                </div>
+                <div class="modal-input">
+                    <label for="description">Descrição</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <button onclick="createPrescription()">
+                    Baixar agora
+                </button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <script src="../scripts/generatepdf.js"></script>
+        <script src="../scripts/modal.js"></script>
+        <script src="../scripts/main.js"></script>
+        <script src="../scripts/med.js"></script>
+</body>
+
+</html>

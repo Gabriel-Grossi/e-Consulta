@@ -1,0 +1,1341 @@
+header {
+  width: 100%;
+  /*background-color: $blue800;*/
+  padding: 1.5rem 2.375rem;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  background: rgb(255, 0, 0);
+  border-radius: 1rem;
+  padding: 0.35rem 1rem;
+  justify-content: center;
+  display: flex;
+  filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+}
+header nav ul li a {
+  align-items: center;
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-decoration: none;
+}
+@media screen and (max-width: 350px) {
+  header nav ul li a p {
+    display: none;
+  }
+}
+header nav span.menu-icon {
+  color: rgb(0, 149, 255);
+  cursor: pointer;
+  font-size: 2.5rem !important;
+  z-index: 1;
+}
+@media (prefers-color-scheme: light) {
+  header nav span.menu-icon {
+    color: rgb(0, 61, 214);
+  }
+}
+
+.sidebar {
+  width: 0;
+  height: 100%;
+  width: 100% !important;
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
+  height: max-content !important;
+}
+@media screen and (max-width: 612px) {
+  .sidebar {
+    width: 0;
+  }
+}
+.sidebar nav {
+  padding: 0.125rem 1rem;
+  position: fixed;
+  left: 1rem;
+  display: flex;
+  width: calc(100% - 2rem);
+  bottom: 1rem;
+  justify-content: center;
+  z-index: 1;
+}
+.sidebar nav ul {
+  border-radius: 1rem;
+  background-color: rgb(9, 9, 80);
+  display: flex;
+  list-style: none;
+  height: inherit;
+}
+.sidebar nav ul li,
+.sidebar nav ul .accordion,
+.sidebar nav ul details {
+  padding: 0.375rem 0.75rem;
+  color: rgb(0, 149, 255);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+  color: rgb(255, 255, 255);
+  transition: margin 0.125s ease-out;
+  border-radius: 1rem;
+  filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.15));
+}
+.sidebar nav ul li:hover a,
+.sidebar nav ul li:hover summary,
+.sidebar nav ul .accordion:hover a,
+.sidebar nav ul .accordion:hover summary,
+.sidebar nav ul details:hover a,
+.sidebar nav ul details:hover summary {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li a,
+.sidebar nav ul li summary,
+.sidebar nav ul .accordion a,
+.sidebar nav ul .accordion summary,
+.sidebar nav ul details a,
+.sidebar nav ul details summary {
+  display: flex;
+  gap: 0 1rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  color: rgb(0, 61, 214);
+}
+.sidebar nav ul li a .sidebar-paragraph,
+.sidebar nav ul li summary .sidebar-paragraph,
+.sidebar nav ul .accordion a .sidebar-paragraph,
+.sidebar nav ul .accordion summary .sidebar-paragraph,
+.sidebar nav ul details a .sidebar-paragraph,
+.sidebar nav ul details summary .sidebar-paragraph {
+  display: flex;
+  align-items: center;
+}
+.sidebar nav ul li a:hover,
+.sidebar nav ul li summary:hover,
+.sidebar nav ul .accordion a:hover,
+.sidebar nav ul .accordion summary:hover,
+.sidebar nav ul details a:hover,
+.sidebar nav ul details summary:hover {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+  color: rgb(255, 255, 255);
+}
+.sidebar nav ul li .panel,
+.sidebar nav ul li .docs-panel,
+.sidebar nav ul li .patient-panel,
+.sidebar nav ul li .schedule-panel,
+.sidebar nav ul .accordion .panel,
+.sidebar nav ul .accordion .docs-panel,
+.sidebar nav ul .accordion .patient-panel,
+.sidebar nav ul .accordion .schedule-panel,
+.sidebar nav ul details .panel,
+.sidebar nav ul details .docs-panel,
+.sidebar nav ul details .patient-panel,
+.sidebar nav ul details .schedule-panel {
+  display: none;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+.sidebar nav ul li .panel ul,
+.sidebar nav ul li .docs-panel ul,
+.sidebar nav ul li .patient-panel ul,
+.sidebar nav ul li .schedule-panel ul,
+.sidebar nav ul .accordion .panel ul,
+.sidebar nav ul .accordion .docs-panel ul,
+.sidebar nav ul .accordion .patient-panel ul,
+.sidebar nav ul .accordion .schedule-panel ul,
+.sidebar nav ul details .panel ul,
+.sidebar nav ul details .docs-panel ul,
+.sidebar nav ul details .patient-panel ul,
+.sidebar nav ul details .schedule-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+.sidebar nav ul li .panel ul li,
+.sidebar nav ul li .docs-panel ul li,
+.sidebar nav ul li .patient-panel ul li,
+.sidebar nav ul li .schedule-panel ul li,
+.sidebar nav ul .accordion .panel ul li,
+.sidebar nav ul .accordion .docs-panel ul li,
+.sidebar nav ul .accordion .patient-panel ul li,
+.sidebar nav ul .accordion .schedule-panel ul li,
+.sidebar nav ul details .panel ul li,
+.sidebar nav ul details .docs-panel ul li,
+.sidebar nav ul details .patient-panel ul li,
+.sidebar nav ul details .schedule-panel ul li {
+  display: flex;
+  gap: 1rem;
+}
+.sidebar nav ul li .panel ul li:hover,
+.sidebar nav ul li .docs-panel ul li:hover,
+.sidebar nav ul li .patient-panel ul li:hover,
+.sidebar nav ul li .schedule-panel ul li:hover,
+.sidebar nav ul .accordion .panel ul li:hover,
+.sidebar nav ul .accordion .docs-panel ul li:hover,
+.sidebar nav ul .accordion .patient-panel ul li:hover,
+.sidebar nav ul .accordion .schedule-panel ul li:hover,
+.sidebar nav ul details .panel ul li:hover,
+.sidebar nav ul details .docs-panel ul li:hover,
+.sidebar nav ul details .patient-panel ul li:hover,
+.sidebar nav ul details .schedule-panel ul li:hover {
+  background-color: rgb(0, 149, 255);
+}
+.sidebar nav ul li .panel ul li a p,
+.sidebar nav ul li .docs-panel ul li a p,
+.sidebar nav ul li .patient-panel ul li a p,
+.sidebar nav ul li .schedule-panel ul li a p,
+.sidebar nav ul .accordion .panel ul li a p,
+.sidebar nav ul .accordion .docs-panel ul li a p,
+.sidebar nav ul .accordion .patient-panel ul li a p,
+.sidebar nav ul .accordion .schedule-panel ul li a p,
+.sidebar nav ul details .panel ul li a p,
+.sidebar nav ul details .docs-panel ul li a p,
+.sidebar nav ul details .patient-panel ul li a p,
+.sidebar nav ul details .schedule-panel ul li a p {
+  font-size: 0.75rem;
+}
+.sidebar nav ul details {
+  display: grid !important;
+}
+.sidebar nav ul details summary {
+  display: flex !important;
+  list-style: none !important;
+}
+
+@media screen and (prefers-color-scheme: dark) and (max-width: 612px) {
+  .sidebar {
+    width: 0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .sidebar nav {
+    display: flex;
+  }
+  .sidebar nav ul {
+    display: flex;
+    align-items: baseline;
+  }
+  .sidebar nav ul li,
+.sidebar nav ul .accordion,
+.sidebar nav ul details {
+    color: rgb(255, 255, 255);
+    display: flex;
+  }
+  .sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+    color: rgb(255, 255, 255);
+    transition: margin 0.125s ease-out;
+    filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.15));
+  }
+  .sidebar nav ul li:hover a,
+.sidebar nav ul li:hover summary,
+.sidebar nav ul .accordion:hover a,
+.sidebar nav ul .accordion:hover summary,
+.sidebar nav ul details:hover a,
+.sidebar nav ul details:hover summary {
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul li a,
+.sidebar nav ul li summary,
+.sidebar nav ul .accordion a,
+.sidebar nav ul .accordion summary,
+.sidebar nav ul details a,
+.sidebar nav ul details summary {
+    display: flex;
+    flex-direction: row !important;
+    gap: 0 1rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.4s;
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul li a .sidebar-paragraph,
+.sidebar nav ul li summary .sidebar-paragraph,
+.sidebar nav ul .accordion a .sidebar-paragraph,
+.sidebar nav ul .accordion summary .sidebar-paragraph,
+.sidebar nav ul details a .sidebar-paragraph,
+.sidebar nav ul details summary .sidebar-paragraph {
+    display: flex;
+    align-items: center;
+  }
+  .sidebar nav ul li a:hover,
+.sidebar nav ul li summary:hover,
+.sidebar nav ul .accordion a:hover,
+.sidebar nav ul .accordion summary:hover,
+.sidebar nav ul details a:hover,
+.sidebar nav ul details summary:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 149, 255);
+    border-radius: 1rem;
+  }
+  .sidebar nav ul li:hover,
+.sidebar nav ul .accordion:hover,
+.sidebar nav ul details:hover {
+    color: rgb(255, 255, 255);
+  }
+  .sidebar nav ul .panel,
+.sidebar nav ul .docs-panel,
+.sidebar nav ul .patient-panel {
+    display: none;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+  }
+  .sidebar nav ul .panel ul,
+.sidebar nav ul .docs-panel ul,
+.sidebar nav ul .patient-panel ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    width: 100%;
+  }
+  .sidebar nav ul .panel ul li,
+.sidebar nav ul .docs-panel ul li,
+.sidebar nav ul .patient-panel ul li {
+    display: flex;
+    gap: 1rem;
+  }
+  .sidebar nav ul .panel ul li:hover,
+.sidebar nav ul .docs-panel ul li:hover,
+.sidebar nav ul .patient-panel ul li:hover {
+    background-color: rgb(0, 149, 255);
+  }
+  .sidebar nav ul .panel ul li a p,
+.sidebar nav ul .docs-panel ul li a p,
+.sidebar nav ul .patient-panel ul li a p {
+    font-size: 0.9rem;
+  }
+  .sidebar nav ul details {
+    display: flex !important;
+  }
+  .sidebar nav ul details summary {
+    display: flex !important;
+    list-style: none !important;
+  }
+}
+#modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#modal-wrapper .modal {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  display: grid;
+  filter: drop-shadow(0.125rem 0.25rem 0.375rem rgba(0, 0, 0, 0.25));
+  padding: 2rem;
+  width: auto;
+}
+#modal-wrapper .modal #modal-content {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+#modal-wrapper .modal #modal-content a {
+  color: rgb(255, 255, 255);
+  background: rgb(9, 38, 112);
+  text-decoration: none;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+#modal-wrapper .modal #modal-content form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+#modal-wrapper .modal #modal-content form input {
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background: rgb(9, 38, 112);
+  padding: 0.5rem 1.5rem;
+  border: none;
+}
+#modal-wrapper .modal #modal-content form input:hover {
+  filter: brightness(0.8);
+}
+#modal-wrapper .modal #modal-content form input[type=button] {
+  color: rgb(0, 149, 255);
+  background: rgb(255, 255, 255);
+  border: 0.0625rem solid rgb(0, 149, 255);
+}
+#modal-wrapper .modal span.close-icon {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+}
+#modal-wrapper .modal span.warning-icon {
+  font-size: 5rem !important;
+  color: #00f;
+  border: 4px solid;
+  border-radius: 50%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+#modal-wrapper .modal .modal-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+#modal-wrapper .modal .modal-input textarea {
+  resize: none;
+  height: 5rem;
+}
+#modal-wrapper .modal button {
+  background-color: rgb(9, 38, 112);
+  color: rgb(255, 255, 255);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 2rem 0;
+}
+#modal-wrapper .modal h2 {
+  padding: 3rem 0;
+}
+#modal-wrapper .modal h2#scheduled-appointment {
+  padding: 1rem 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #fff !important;
+  scroll-behavior: smooth;
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+select {
+  border: none;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 3rem 6rem;
+}
+.social h2 {
+  font-size: 1.5rem !important;
+}
+.social .social-media-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  align-items: center;
+  gap: 1rem;
+}
+.social .social-media-group .social-media a {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: rgb(30, 73, 182);
+}
+
+.overlay-menu {
+  background: rgb(20, 40, 112);
+  display: none;
+  height: 100%;
+  padding: 2rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 15rem;
+}
+.overlay-menu .close {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 1rem;
+}
+.overlay-menu .close .close-icon {
+  padding: 0.5rem;
+  background-color: rgb(0, 149, 255);
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.overlay-menu ul {
+  display: grid;
+  list-style: none;
+  gap: 1.25rem;
+}
+.overlay-menu ul li a {
+  color: rgb(0, 149, 255);
+}
+.overlay-menu ul li a:hover {
+  border-bottom: 0.0625rem solid rgb(0, 149, 255);
+}
+
+.move-top {
+  align-items: center;
+  background-color: rgb(0, 149, 255);
+  border-radius: 50%;
+  bottom: 2rem;
+  cursor: pointer;
+  display: grid;
+  padding: 1rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 6;
+}
+.move-top span {
+  color: rgb(255, 255, 255);
+}
+
+.share {
+  background-color: rgb(0, 149, 255);
+  border-radius: 50%;
+  bottom: 6rem;
+  color: rgb(9, 38, 112);
+  padding: 1rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 7;
+}
+.share a {
+  display: grid;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.vertical-content {
+  flex-direction: column !important;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 10vh;
+  background: rgb(20, 40, 112);
+}
+footer span {
+  color: rgb(255, 255, 255);
+}
+
+.no-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.no-info span {
+  font-size: 3rem;
+  color: lightblue;
+}
+
+main .home-title {
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 3rem;
+  padding: 0 1rem !important;
+}
+main .home-title img {
+  width: max(41rem, 30%);
+  margin: auto;
+}
+main .home-title small {
+  color: #00f;
+}
+main .content {
+  padding: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 612px) {
+  main .content {
+    width: 100%;
+    padding: 3rem 1.5rem;
+  }
+}
+main .content h1 {
+  color: rgb(30, 73, 182);
+  font-size: 2rem;
+}
+main .content h3 {
+  color: rgb(0, 61, 214);
+}
+main .content fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+main .content fieldset legend {
+  padding: 1rem 0;
+}
+main .content .content-subtitle {
+  color: rgb(112, 112, 112);
+}
+main .content .form-search {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+@media screen and (max-width: 480px) {
+  main .content .form-search {
+    width: 100%;
+  }
+}
+main .content .form-search .patientData {
+  color: rgb(112, 112, 112);
+  padding: 0.25rem 0;
+}
+main .content .form-search .form-input-group {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column !important;
+}
+main .content .form-search .form-input-group .form-input-field {
+  display: flex;
+  flex-direction: column;
+}
+main .content .form-search .form-input-group .form-input-field .form-input {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+main .content .form-search .form-input-group .form-input-field .form-input .labelRadio {
+  color: rgb(20, 40, 112);
+}
+main .content .form-search .form-input-group .form-input-field input[type=text] {
+  width: 20rem;
+}
+main .content .form-search .form-input-group .form-input-field input[type=text]:focus-visible {
+  border: none;
+  outline: 0.0625rem solid rgb(0, 149, 255);
+}
+main .content .form-search .form-input-group .form-input-field input[type=text],
+main .content .form-search .form-input-group .form-input-field input[type=number],
+main .content .form-search .form-input-group .form-input-field textarea {
+  padding: 0.25rem 0.5rem;
+}
+main .content .form-search .form-input-group .form-input-field textarea {
+  height: 10rem;
+}
+main .content .form-search input[type=submit] {
+  background: rgb(9, 38, 112);
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+}
+main .content .form-search input[type=text] {
+  padding: 0.125rem 0.25rem;
+}
+main .content .results-items-amount {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+main .content .results-item-amount-description {
+  color: rgb(112, 112, 112);
+}
+main .content .patient-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+  gap: 1rem;
+  height: auto;
+  padding: 1rem 0.25rem;
+  overflow: auto;
+}
+main .content .patient-group .patient {
+  -webkit-animation: fadeProduct 0.245s ease-out;
+          animation: fadeProduct 0.245s ease-out;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(1, 1, 102, 0.15);
+  border-radius: 0.5rem;
+  color: rgb(30, 73, 182);
+  display: flex;
+  filter: drop-shadow(0.125rem 0.25rem 0.25rem rgba(0, 0, 0, 0.15));
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+main .content .patient-group .patient:hover {
+  filter: none;
+  box-shadow: rgb(30, 73, 182) -5px 0 0;
+}
+main .content .patient-group .patient form input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem 0;
+  padding: 0.25rem 0.5rem;
+  background: none;
+  outline: 0.0625rem solid rgb(0, 61, 214);
+  color: rgb(0, 61, 214);
+  border: none;
+}
+main .content .patient-group .patient form input:hover {
+  outline: none;
+  background: rgb(0, 61, 214);
+  color: rgb(255, 255, 255);
+  padding: 0.25rem 0.5rem;
+}
+main .content .patient-group .patient .patient-last-seen {
+  color: rgb(112, 112, 112);
+}
+main .content .patient-group .patient .actions-group {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+main .content .patient-group .patient .actions-group .actions {
+  display: flex;
+}
+main .content .patient-group .patient .actions-group a {
+  padding: 0.35rem 0.85rem;
+  background: rgb(20, 40, 112);
+  color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+}
+main .content .patient-group .patient h3 {
+  color: rgb(0, 149, 255);
+}
+main .content .functions-patient-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1rem;
+  height: auto;
+  padding: 1rem 0.25rem;
+  overflow: auto;
+  width: 100%;
+}
+main .content .functions-patient-group .functions-patient {
+  -webkit-animation: fadeProduct 0.245s ease-out;
+          animation: fadeProduct 0.245s ease-out;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  color: rgb(30, 73, 182);
+  display: flex;
+  filter: drop-shadow(0.125rem 0.25rem 0.25rem rgba(0, 0, 0, 0.15));
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  align-items: center;
+}
+main .content .functions-patient-group .functions-patient:hover {
+  filter: none;
+  outline: 0.0625rem solid rgba(0, 0, 0, 0.25);
+}
+main .content .functions-patient-group .functions-patient span {
+  font-size: 4rem;
+}
+main .content .functions-patient-group .functions-patient .actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .content .functions-patient-group .functions-patient .actions-group a {
+  background: none;
+  border-radius: 0;
+  color: rgb(0, 61, 214);
+  padding: 0.5rem 0;
+  width: auto;
+}
+main .content .functions-patient-group .functions-patient .actions-group a span {
+  font-size: 24px;
+  height: 100%;
+  vertical-align: middle;
+}
+main .content .functions-patient-group .functions-patient .actions-group a:hover {
+  border: none;
+}
+main .content .functions-patient-group .functions-patient .actions-group a:hover::after {
+  transform: scaleX(1);
+}
+main .content .functions-patient-group .functions-patient .actions-group a::after {
+  display: flex;
+  content: "";
+  border-bottom: solid 3px rgb(0, 61, 214);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+  transform-origin: 0% 50%;
+}
+main .content .functions-patient-group .functions-patient h3 {
+  color: rgb(0, 149, 255);
+}
+main .content .content-prescription,
+main .content .content-appointment {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem 0;
+  margin: 3rem 0;
+}
+main .content .content-prescription button,
+main .content .content-appointment button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: rgb(9, 38, 112);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: rgb(255, 255, 255);
+}
+main .content .content-prescription button[type=reset],
+main .content .content-appointment button[type=reset] {
+  background: rgb(255, 255, 255);
+  color: rgb(9, 38, 112);
+  outline: 0.0625rem solid rgb(9, 38, 112);
+  margin-left: 1rem;
+}
+main .content .content-prescription form .form-input-group,
+main .content .content-appointment form .form-input-group {
+  gap: 1.25rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(5rem, 1fr));
+  align-items: center;
+}
+main .content .content-prescription form .form-input-group .prescription-input,
+main .content .content-prescription form .form-input-group .appointment-input,
+main .content .content-prescription form .form-input-group .form-input-field,
+main .content .content-prescription form .form-input-group .form-input-group,
+main .content .content-appointment form .form-input-group .prescription-input,
+main .content .content-appointment form .form-input-group .appointment-input,
+main .content .content-appointment form .form-input-group .form-input-field,
+main .content .content-appointment form .form-input-group .form-input-group {
+  display: flex;
+  flex-direction: column !important;
+}
+main .content .content-prescription form .form-input-group .prescription-input textarea,
+main .content .content-prescription form .form-input-group .appointment-input textarea,
+main .content .content-prescription form .form-input-group .form-input-field textarea,
+main .content .content-prescription form .form-input-group .form-input-group textarea,
+main .content .content-appointment form .form-input-group .prescription-input textarea,
+main .content .content-appointment form .form-input-group .appointment-input textarea,
+main .content .content-appointment form .form-input-group .form-input-field textarea,
+main .content .content-appointment form .form-input-group .form-input-group textarea {
+  resize: none;
+  height: 7rem;
+  margin: 0.25rem 0;
+}
+main .content .content-prescription form .form-input-group .prescription-input label,
+main .content .content-prescription form .form-input-group .appointment-input label,
+main .content .content-prescription form .form-input-group .form-input-field label,
+main .content .content-prescription form .form-input-group .form-input-group label,
+main .content .content-appointment form .form-input-group .prescription-input label,
+main .content .content-appointment form .form-input-group .appointment-input label,
+main .content .content-appointment form .form-input-group .form-input-field label,
+main .content .content-appointment form .form-input-group .form-input-group label {
+  color: rgb(112, 112, 112);
+}
+main .content .content-prescription form .form-input-group .prescription-input input,
+main .content .content-prescription form .form-input-group .appointment-input input,
+main .content .content-prescription form .form-input-group .form-input-field input,
+main .content .content-prescription form .form-input-group .form-input-group input,
+main .content .content-appointment form .form-input-group .prescription-input input,
+main .content .content-appointment form .form-input-group .appointment-input input,
+main .content .content-appointment form .form-input-group .form-input-field input,
+main .content .content-appointment form .form-input-group .form-input-group input {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 0.25rem 0.5rem;
+}
+main .content .content-prescription .prescription-input,
+main .content .content-prescription .appointment-input,
+main .content .content-prescription .form-input-field,
+main .content .content-prescription .form-input-group,
+main .content .content-appointment .prescription-input,
+main .content .content-appointment .appointment-input,
+main .content .content-appointment .form-input-field,
+main .content .content-appointment .form-input-group {
+  display: flex;
+  flex-direction: column !important;
+}
+main .content .content-prescription .prescription-input textarea,
+main .content .content-prescription .appointment-input textarea,
+main .content .content-prescription .form-input-field textarea,
+main .content .content-prescription .form-input-group textarea,
+main .content .content-appointment .prescription-input textarea,
+main .content .content-appointment .appointment-input textarea,
+main .content .content-appointment .form-input-field textarea,
+main .content .content-appointment .form-input-group textarea {
+  resize: none;
+  height: 7rem;
+  margin: 0.25rem 0;
+}
+main .content .content-prescription .prescription-input label,
+main .content .content-prescription .appointment-input label,
+main .content .content-prescription .form-input-field label,
+main .content .content-prescription .form-input-group label,
+main .content .content-appointment .prescription-input label,
+main .content .content-appointment .appointment-input label,
+main .content .content-appointment .form-input-field label,
+main .content .content-appointment .form-input-group label {
+  color: rgb(112, 112, 112);
+}
+main .content .content-prescription .prescription-input input,
+main .content .content-prescription .prescription-input select,
+main .content .content-prescription .appointment-input input,
+main .content .content-prescription .appointment-input select,
+main .content .content-prescription .form-input-field input,
+main .content .content-prescription .form-input-field select,
+main .content .content-prescription .form-input-group input,
+main .content .content-prescription .form-input-group select,
+main .content .content-appointment .prescription-input input,
+main .content .content-appointment .prescription-input select,
+main .content .content-appointment .appointment-input input,
+main .content .content-appointment .appointment-input select,
+main .content .content-appointment .form-input-field input,
+main .content .content-appointment .form-input-field select,
+main .content .content-appointment .form-input-group input,
+main .content .content-appointment .form-input-group select {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 0.25rem 0.5rem;
+  width: 85% !important;
+}
+main .content .content-prescription .prescription-input input[type=submit].search-button,
+main .content .content-prescription .appointment-input input[type=submit].search-button,
+main .content .content-prescription .form-input-field input[type=submit].search-button,
+main .content .content-prescription .form-input-group input[type=submit].search-button,
+main .content .content-appointment .prescription-input input[type=submit].search-button,
+main .content .content-appointment .appointment-input input[type=submit].search-button,
+main .content .content-appointment .form-input-field input[type=submit].search-button,
+main .content .content-appointment .form-input-group input[type=submit].search-button {
+  border: 1px solid blue !important;
+  background: white;
+  padding: 0.85rem !important;
+  border-radius: 0.5rem;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+main .content .patient-content .patient-name {
+  color: rgb(0, 149, 255);
+}
+main .content .patient-content .actions-patient {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: rgb(0, 61, 214);
+  color: rgb(255, 255, 255);
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+main .content .patient-content .patient-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+main .content .patient-content .patient-info h4 {
+  color: rgb(0, 61, 214);
+}
+main .content .patient-content .patient-info .patient-info-details {
+  display: flex;
+  flex-direction: column;
+  color: rgb(30, 73, 182);
+}
+
+.active {
+  display: block;
+  /*top: 3.5rem;*/
+  width: 19rem;
+}
+
+.active-content {
+  display: flex;
+  left: 22rem !important;
+  position: absolute;
+  width: calc(100% - 25rem) !important;
+  height: calc(100% - 1rem);
+  padding: 2rem 0 !important;
+  justify-content: flex-start !important;
+}
+.active-content h1 {
+  padding-top: 2rem;
+}
+.active-content img {
+  width: calc(100% - 35rem) !important;
+}
+
+.active-accordion {
+  display: grid !important;
+}
+
+.active-modal {
+  display: flex !important;
+}
+
+/*
+@media(prefers-color-scheme:'dark') {
+    body {
+        background: rgb(0, 0, 26);
+    }
+
+    main {
+        .content {
+            h1 {
+                color: $blue200;
+            }
+
+            h3 {
+                color: $blue400;
+            }
+
+            .content-subtitle {
+                color: $blue500;
+            }
+
+            .form-search {
+                .patientData {
+                    color: $blue800;
+                    padding: .25rem 0;
+                }
+
+                .form-input-group {
+                    .form-input-field {
+                        .form-input {
+                            .labelRadio {
+                                color: $blue800
+                            }
+                        }
+
+                        input[type="text"] {
+                            width: 20rem;
+
+                            &:focus-visible {
+                                border: none;
+                                outline: .0625rem solid $blue200;
+                            }
+                        }
+
+                        input[type="text"],
+                        input[type="number"],
+                        textarea {
+                            padding: .25rem .5rem;
+                            color: $blue200;
+                        }
+
+                        textarea {
+                            height: 10rem;
+                        }
+                    }
+                }
+
+                input[type="submit"] {
+                    background: $blue400;
+                    border: none;
+                    color: $white;
+                    cursor: pointer;
+                    margin-top: 2rem;
+                    padding: .5rem 1rem;
+                    width: fit-content;
+                    height: auto;
+                }
+
+                input[type="text"] {
+                    padding: .125rem .25rem;
+                }
+            }
+
+            .results-items-amount {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .results-item-amount-description {
+                color: $grey800;
+            }
+
+            table {
+                padding-top: 1rem;
+
+                .col1,
+                .col2,
+                .col3,
+                .col4,
+                .col5 {
+                    color: $blue200;
+                }
+            }
+
+            .patient-group {
+                display: grid;
+                //grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+                //grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
+                gap: 1rem;
+                height: auto;
+                padding: 1rem .25rem;
+                overflow: auto;
+
+                .patient {
+                    border: 1px solid rgb(1, 1, 102);
+                    color: $blue200  !important;
+                    background: none;
+                    filter: drop-shadow(.125rem .25rem .25rem $black15);
+
+                    .dados {
+                        .col2 {
+                            .patient-name {
+                                color: $blue200;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background: rgb(1, 1, 102);
+                        filter: none;
+                        outline: .0625rem solid $black25;
+                    }
+
+                    form {
+                        input {
+                            width: fit-content;
+                            margin: 1rem 0;
+                            padding: .25rem .5rem;
+                            background: none;
+                            outline: .0625rem solid $blue400;
+                            color: $blue400;
+                            border: none;
+
+                            &:hover {
+                                outline: none;
+                                background: $blue400;
+                                color: $white;
+                                padding: .25rem .5rem;
+                            }
+                        }
+                    }
+                    .actions{
+                        display: flex;
+                        justify-content: flex-end;
+                        span{
+                            padding: .25rem;
+                            border-radius: .5rem;
+                            &:hover{
+                                background-color: #003dd6;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .functions-patient-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+                grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+                overflow: auto;
+                width: 100%;
+
+                .functions-patient {
+                    animation: fadeProduct .245s ease-out;
+                    background-color: transparent;
+                    border: 1px solid rgb(1, 1, 102);
+                    border-radius: .5rem;
+                    color: $blue500;
+                    display: flex;
+                    filter: drop-shadow(.125rem .25rem .25rem $black15);
+                    flex-direction: column;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                    width: 100%;
+
+                    &:hover {
+                        filter: none;
+                        outline: .0625rem solid $black25;
+                    }
+
+                    span {
+                        font-size: 4rem;
+                    }
+
+                    .actions-group {
+                        a {
+                            border-radius: 0;
+                            color: $white;
+                            width: auto;
+                            span{
+                                font-size: 24px;
+                                height: 100%;
+                                vertical-align: middle;
+                            }
+
+                            &:hover {
+                                border: none;
+
+                                &::after {
+                                    transform: scaleX(1);
+                                }
+                            }
+
+                            &::after {
+                                display: flex;
+                                content: '';
+                                border-bottom: solid 3px $blue400;
+                                transform: scaleX(0);
+                                transition: transform 250ms ease-in-out;
+                                transform-origin: 0% 50%;
+                            }
+                        }
+                    }
+
+                    h3 {
+                        color: $blue200;
+                    }
+
+                }
+            }
+
+            .content-prescription,
+            .content-appointment,
+            .content-search {
+                button {
+                    background: $blue800;
+                    color: $white;
+
+                    &[type="reset"] {
+                        background: $white;
+                        color: $blue800;
+                        outline: .0625rem solid $blue800;
+                    }
+                }
+
+                form {
+                    .form-input-group {
+
+                        .prescription-input,
+                        .appointment-input,
+                        .form-input-field,
+                        .form-input-group {
+                            textarea {
+                                border: 1px solid #00f;
+                                color: $blue200;
+                                background: none;
+                                padding: .5rem;
+                            }
+
+                            label {
+                                color: $blue400;
+                            }
+
+                            input,
+                            select {
+                                background: none;
+                                border-bottom: 1px solid #00f;
+                                color: $blue200;
+                            }
+                        }
+                    }
+                }
+
+                .prescription-input,
+                .appointment-input,
+                .form-input-field,
+                .form-input-group {
+                    display: flex;
+                    flex-direction: column !important;
+
+                    //width: 25rem !important;
+                    textarea {
+                        resize: none;
+                        height: 7rem;
+                        margin: .25rem 0;
+                    }
+
+                    label {
+                        color: $grey800;
+                    }
+
+                    input,
+                    select {
+                        border-left: none;
+                        border-right: none;
+                        border-top: none;
+                        padding: .25rem .5rem;
+                        width: 85% !important;
+                    }
+
+                    input[type='submit'].search-button {
+                        border: 1px solid blue !important;
+                        background: white;
+                        padding: .85rem !important;
+                        border-radius: .5rem;
+                        width: fit-content !important;
+
+                    }
+                }
+            }
+        }
+    }
+}
+*//*# sourceMappingURL=main.css.map */

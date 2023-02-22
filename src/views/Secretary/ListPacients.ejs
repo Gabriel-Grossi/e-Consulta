@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        tr {
+            display: flex;
+        }
+
+        .dados {
+            display: flex;
+            margin: 1rem 0;
+
+        }
+
+        .col1,
+        .col2,
+        .col3,
+        .col4,
+        .col5 {
+            display: flex;
+        }
+
+        .col1 {
+            align-items: center;
+            display: flex;
+            width: 5%;
+            justify-content: center;
+        }
+
+        .col2 {
+            align-items: center;
+            display: flex;
+            text-align: justify;
+            width: 30%;
+            color: rgb(20, 40, 112);
+        }
+
+        .col3 {
+            width: 5%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .col4 {
+            align-items: center;
+            display: flex;
+            width: 10%;
+            justify-content: center;
+        }
+
+        .col5 {
+            width: 35%;
+            text-align: justify;
+            padding: .15rem 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="../../styles/main/main.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+    <%- include("../parts/header") %>
+        <main>
+            <%- include("../parts/sidebar_sec") %>
+                <section class="content">
+                    <h1>Listar Pacientes</h1>
+                    <small class="content-subtitle">Preencha os campos a seguir para ter acesso ao
+                        prontuário</small>
+                    <div class="results-items-amount">
+                        <div class="results-item-amount-description">
+                            <span>A busca retornou <%= recordsCount %> </span>
+                        </div>
+                        
+                        <div class="results-item-amount-content">
+                            <select name="options-filter" id="options-filter" class="options-filter">
+                                <option value="">Escolha uma opção</option>
+                                <option value="Amil">Amil</option>
+                                <option value="Bradesco">Bradesco</option>
+                                <option value="NotreDame">NotreDame Intermedica</option>
+                                <option value="Sulamerica">Sulamerica</option>
+                                <option value="Transmontano">Transmontano</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="patient-group">
+                        <% patient.forEach(patient=> { %>
+                            <div class="patient" data-id="<%= patient.id %>">
+                                <small>
+                                    <%= patient.medicalInsurance %>
+                                </small>
+                                <h3 class='patient-name'>
+                                    <%= patient.name %>
+                                </h3>
+                                <div class="actions-group">
+                                    <div class="actions">
+                                        <span class='material-icons-round'>edit_note</span>
+                                        <span class='material-icons-round'>delete</span>
+                                    </div>
+                                    <a href="/patient/<%= patient.id %>">Ver Prontuário</a>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                </section>
+        </main>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="../../scripts/sec.js"></script>
+        <script src="../../scripts/main.js"></script>
+
+</body>
+
+</html>

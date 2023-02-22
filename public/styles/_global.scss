@@ -1,0 +1,158 @@
+@import "colors";
+@import "header";
+@import "sidebar";
+@import "modal";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #fff!important;
+    scroll-behavior: smooth;
+}
+
+button{
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+select{
+    border: none;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+.social{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    padding: 3rem 6rem;
+    h2{
+        font-size: 1.5rem !important;
+    }
+    .social-media-group{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+        align-items: center;
+        gap: 1rem;
+        .social-media{
+            a{
+                gap: 1rem;
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                color: $blue500;
+            }
+        }
+    }
+}
+
+.overlay-menu{
+    background: $blue900;
+    display: none;
+    height: 100%;
+    padding: 2rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 15rem;
+    .close{
+        display: flex;
+        justify-content: end;
+        margin-bottom: 1rem;
+        .close-icon{
+            padding: .5rem;
+            background-color: $blue200;
+            color: $white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+    ul{
+        display: grid;
+        list-style: none;
+        gap: 1.25rem;
+        li{
+            a{
+                color: $blue200;
+                &:hover{
+                    border-bottom: .0625rem solid $blue200 ;
+                }
+            }
+        }
+    }
+}
+
+.move-top{
+    align-items: center;
+    background-color: $blue200; 
+    border-radius: 50%;
+    bottom: 2rem; 
+    cursor: pointer;
+    display: grid; 
+    padding: 1rem; 
+    position: fixed; 
+    right: 2rem; 
+    z-index: 6; 
+    span{
+        color: $white;
+    }
+}
+
+.share{
+    background-color: $blue200; 
+    border-radius: 50%;
+    bottom: 6rem; 
+    color: $blue800;
+    padding: 1rem; 
+    position: fixed; 
+    right: 2rem; 
+    z-index: 7;
+    a{
+        display: grid;
+        align-items: center;
+        text-decoration: none;
+        color: $white;       
+    }
+     
+}
+
+.vertical-content{
+    flex-direction: column !important;
+}
+
+
+footer{
+    display: flex;
+    align-items: center;
+    padding: 0 .5rem;
+    height: 10vh; 
+    background: rgb(20, 40, 112);
+    span{
+        color: $white;
+    }
+}
+
+.no-info{
+    align-items: center; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 2rem 0;
+    span{
+        font-size: 3rem; color:lightblue;
+    }
+}
