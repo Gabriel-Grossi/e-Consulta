@@ -37,3 +37,13 @@ A aplicação tem o objetivo de auxiliar consultórios médicos no gerenciamento
         Git: Clone
 5. Acesse o repositório do projeto que deseja clonar, clique em "Code", em seguida, copie a URL exibida para a caixa de texto no VS Code.
 6. Pressione Enter e aguarde o término do processo.
+7. Após o processo de clonagem do repositório, abra o terminal integrado do VS Code e digite o comando de instalação do gerenciador de pacotes de sua preferência:
+    - Para Yarn:
+
+            yarn
+    - Para NPM:
+    
+            npm install
+8. Após instalar as dependências do projeto, execute o seguinte comando:
+
+        yarn dev
